@@ -42,7 +42,7 @@ class ImportMsgRequest extends BaseRequest
     /**
      * @param int $syncFromOldSystem
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\ImportMsgRequest
+     * @return $this
      */
     public function setSyncFromOldSystem(int $syncFromOldSystem)
     {
@@ -54,7 +54,7 @@ class ImportMsgRequest extends BaseRequest
     /**
      * @param string $fromAccount
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\ImportMsgRequest
+     * @return $this
      */
     public function setFromAccount(string $fromAccount)
     {
@@ -66,7 +66,7 @@ class ImportMsgRequest extends BaseRequest
     /**
      * @param string $toAccount
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\ImportMsgRequest
+     * @return $this
      */
     public function setToAccount(string $toAccount)
     {
@@ -76,13 +76,13 @@ class ImportMsgRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $parameter
+     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\ImportMsgRequest
+     * @return $this
      */
-    public function setMsgBody(MsgBody $parameter)
+    public function setMsgBody(MsgBody $msgBody)
     {
-        $this->setParameter('MsgBody', $parameter->getParameters());
+        $this->setParameter('MsgBody', $msgBody->getParameters());
 
         return $this;
     }

@@ -5,24 +5,22 @@ namespace BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class ForbidSendMsgRequest
+ * Class GroupMsgGetSimpleRequest
  *
  * @package BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc
  */
-class ForbidSendMsgRequest extends BaseRequest
+class GroupMsgGetSimpleRequest extends BaseRequest
 {
     /**
-     * ForbidSendMsgRequest constructor.
+     * GroupMsgGetSimpleRequest constructor.
      *
      * @param string $groupId
-     * @param array  $membersAccount
-     * @param int    $shutUpTime
+     * @param int    $reqMsgNumber
      */
-    public function __construct(string $groupId, array $membersAccount, int $shutUpTime)
+    public function __construct(string $groupId, int $reqMsgNumber)
     {
         $this->setGroupId($groupId)
-            ->setMembersAccount($membersAccount)
-            ->setShutUpTime($shutUpTime);
+            ->setReqMsgNumber($reqMsgNumber);
     }
 
     /**
@@ -30,7 +28,7 @@ class ForbidSendMsgRequest extends BaseRequest
      */
     public function getUri(): string
     {
-        return 'v4/group_open_http_svc/forbid_send_msg';
+        return 'v4/group_open_http_svc/group_msg_get_simple';
     }
 
     /**
@@ -46,25 +44,25 @@ class ForbidSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param array $membersAccount
+     * @param int $reqMsgNumber
      *
      * @return $this
      */
-    public function setMembersAccount(array $membersAccount)
+    public function setReqMsgNumber(int $reqMsgNumber)
     {
-        $this->setParameter('Members_Account', $membersAccount);
+        $this->setParameter('ReqMsgNumber', $reqMsgNumber);
 
         return $this;
     }
 
     /**
-     * @param int $shutUpTime
+     * @param int $reqMsgSeq
      *
      * @return $this
      */
-    public function setShutUpTime(int $shutUpTime)
+    public function setReqMsgSeq(int $reqMsgSeq)
     {
-        $this->setParameter('ShutUpTime', $shutUpTime);
+        $this->setParameter('ReqMsgSeq', $reqMsgSeq);
 
         return $this;
     }

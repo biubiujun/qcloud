@@ -5,24 +5,22 @@ namespace BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class ForbidSendMsgRequest
+ * Class SendGroupSystemNotificationRequest
  *
  * @package BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc
  */
-class ForbidSendMsgRequest extends BaseRequest
+class SendGroupSystemNotificationRequest extends BaseRequest
 {
     /**
-     * ForbidSendMsgRequest constructor.
+     * SendGroupSystemNotificationRequest constructor.
      *
      * @param string $groupId
-     * @param array  $membersAccount
-     * @param int    $shutUpTime
+     * @param string $content
      */
-    public function __construct(string $groupId, array $membersAccount, int $shutUpTime)
+    public function __construct(string $groupId, string $content)
     {
         $this->setGroupId($groupId)
-            ->setMembersAccount($membersAccount)
-            ->setShutUpTime($shutUpTime);
+            ->setContent($content);
     }
 
     /**
@@ -30,7 +28,7 @@ class ForbidSendMsgRequest extends BaseRequest
      */
     public function getUri(): string
     {
-        return 'v4/group_open_http_svc/forbid_send_msg';
+        return 'v4/group_open_http_svc/send_group_system_notification';
     }
 
     /**
@@ -46,25 +44,25 @@ class ForbidSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param array $membersAccount
+     * @param array $toMembersAccount
      *
      * @return $this
      */
-    public function setMembersAccount(array $membersAccount)
+    public function setToMembersAccount(array $toMembersAccount)
     {
-        $this->setParameter('Members_Account', $membersAccount);
+        $this->setParameter('ToMembers_Account', $toMembersAccount);
 
         return $this;
     }
 
     /**
-     * @param int $shutUpTime
+     * @param string $content
      *
      * @return $this
      */
-    public function setShutUpTime(int $shutUpTime)
+    public function setContent(string $content)
     {
-        $this->setParameter('ShutUpTime', $shutUpTime);
+        $this->setParameter('Content', $content);
 
         return $this;
     }

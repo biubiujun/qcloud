@@ -90,13 +90,13 @@ class BatchSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $parameter
+     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
      *
      * @return $this
      */
-    public function setMsgBody(MsgBody $parameter)
+    public function setMsgBody(MsgBody $msgBody)
     {
-        $this->setParameter('MsgBody', $parameter->getParameters());
+        $this->setParameter('MsgBody', $msgBody->getParameters());
 
         return $this;
     }

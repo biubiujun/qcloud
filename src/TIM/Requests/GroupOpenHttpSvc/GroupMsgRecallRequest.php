@@ -5,24 +5,24 @@ namespace BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class ForbidSendMsgRequest
+ * Class GroupMsgRecallRequest
  *
  * @package BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc
  */
-class ForbidSendMsgRequest extends BaseRequest
+class GroupMsgRecallRequest extends BaseRequest
 {
     /**
-     * ForbidSendMsgRequest constructor.
+     * GroupMsgRecallRequest constructor.
      *
      * @param string $groupId
-     * @param array  $membersAccount
-     * @param int    $shutUpTime
+     * @param array  $msgSeqList
+     * @param int    $msgSeq
      */
-    public function __construct(string $groupId, array $membersAccount, int $shutUpTime)
+    public function __construct(string $groupId, array $msgSeqList, int $msgSeq)
     {
         $this->setGroupId($groupId)
-            ->setMembersAccount($membersAccount)
-            ->setShutUpTime($shutUpTime);
+            ->setMsgSeqList($msgSeqList)
+            ->setMsgSeq($msgSeq);
     }
 
     /**
@@ -30,7 +30,7 @@ class ForbidSendMsgRequest extends BaseRequest
      */
     public function getUri(): string
     {
-        return 'v4/group_open_http_svc/forbid_send_msg';
+        return 'v4/group_open_http_svc/group_msg_recall';
     }
 
     /**
@@ -46,25 +46,25 @@ class ForbidSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param array $membersAccount
+     * @param array $msgSeqList
      *
      * @return $this
      */
-    public function setMembersAccount(array $membersAccount)
+    public function setMsgSeqList(array $msgSeqList)
     {
-        $this->setParameter('Members_Account', $membersAccount);
+        $this->setParameter('MsgSeqList', $msgSeqList);
 
         return $this;
     }
 
     /**
-     * @param int $shutUpTime
+     * @param int $msgSeq
      *
      * @return $this
      */
-    public function setShutUpTime(int $shutUpTime)
+    public function setMsgSeq(int $msgSeq)
     {
-        $this->setParameter('ShutUpTime', $shutUpTime);
+        $this->setParameter('MsgSeq', $msgSeq);
 
         return $this;
     }

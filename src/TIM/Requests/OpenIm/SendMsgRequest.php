@@ -44,7 +44,7 @@ class SendMsgRequest extends BaseRequest
     /**
      * @param int $syncOtherMachine
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\SendMsgRequest
+     * @return $this
      */
     public function setSyncOtherMachine(int $syncOtherMachine)
     {
@@ -56,7 +56,7 @@ class SendMsgRequest extends BaseRequest
     /**
      * @param string $fromAccount
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\SendMsgRequest
+     * @return $this
      */
     public function setFromAccount(string $fromAccount)
     {
@@ -68,7 +68,7 @@ class SendMsgRequest extends BaseRequest
     /**
      * @param string $toAccount
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\SendMsgRequest
+     * @return $this
      */
     public function setToAccount(string $toAccount)
     {
@@ -80,7 +80,7 @@ class SendMsgRequest extends BaseRequest
     /**
      * @param int $msgLifeTime
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\SendMsgRequest
+     * @return $this
      */
     public function setMsgLifeTime(int $msgLifeTime)
     {
@@ -90,13 +90,13 @@ class SendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $parameter
+     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
      *
-     * @return \BiuBiuJun\QCloud\TIM\Requests\SendMsgRequest
+     * @return $this
      */
-    public function setMsgBody(MsgBody $parameter)
+    public function setMsgBody(MsgBody $msgBody)
     {
-        $this->setParameter('MsgBody', $parameter->getParameters());
+        $this->setParameter('MsgBody', $msgBody->getParameters());
 
         return $this;
     }
