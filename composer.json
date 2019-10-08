@@ -1,0 +1,38 @@
+{
+    "name": "biubiujun\/qcloud",
+    "description": "腾讯云 SDK",
+    "keywords": [
+        "qcloud",
+        "sdk",
+        "tim"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BiuBiuJun",
+            "email": "me@biubiujun.cn"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-zlib": "*",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3",
+        "phpstan/phpstan": "^0.11.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "BiuBiuJun\\QCloud\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BiuBiuJun\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+parameters:
+    level: 5
+    paths:
+        - src
+    ignoreErrors:
+        - '#is not subtype of Throwable#'
+    excludes_analyse:
+        - %rootDir%/../../../src/Kernel/TLSSigAPIv1.php
+        - %rootDir%/../../../src/Kernel/TLSSigAPIv2.php
