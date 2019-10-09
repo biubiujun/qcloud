@@ -16,13 +16,11 @@ class AddGroupMemberRequest extends BaseRequest
      *
      * @param string $groupId
      * @param array  $memberList
-     * @param string $memberAccount
      */
-    public function __construct(string $groupId, array $memberList, string $memberAccount)
+    public function __construct(string $groupId, array $memberList)
     {
         $this->setGroupId($groupId)
-            ->setMemberList($memberList)
-            ->setMemberAccount($memberAccount);
+            ->setMemberList($memberList);
     }
 
     /**
@@ -64,19 +62,12 @@ class AddGroupMemberRequest extends BaseRequest
      */
     public function setMemberList(array $memberList)
     {
-        $this->setParameter('MemberList', $memberList);
+        $memberListArray = [];
+        foreach ($memberList as $item) {
+            $memberListArray['Member_Account'] = $item;
+        }
 
-        return $this;
-    }
-
-    /**
-     * @param string $memberAccount
-     *
-     * @return $this
-     */
-    public function setMemberAccount(string $memberAccount)
-    {
-        $this->setParameter('Member_Account', $memberAccount);
+        $this->setParameter('MemberList', $memberListArray);
 
         return $this;
     }
