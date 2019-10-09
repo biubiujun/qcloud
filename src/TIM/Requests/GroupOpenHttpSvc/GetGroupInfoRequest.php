@@ -18,7 +18,7 @@ class GetGroupInfoRequest extends BaseRequest
      */
     public function __construct($groupIdList)
     {
-        $this->setGroupList($groupIdList);
+        $this->setGroupIdList($groupIdList);
     }
 
     /**

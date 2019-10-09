@@ -25,4 +25,11 @@ class Group
     const APPLY_JOIN_OPTION_NEED_PERMISSION = 'NeedPermission';// 需要验证 (default)
 
     const APPLY_JOIN_OPTION_DISABLE_APPLY = 'DisableApply';// 禁止加群
+
+    /*
+     * 成员身份
+     */
+    const ADMIN = 'Admin';// 设置管理员
+
+    const MEMBER = 'Member';// 取消管理员
 }
