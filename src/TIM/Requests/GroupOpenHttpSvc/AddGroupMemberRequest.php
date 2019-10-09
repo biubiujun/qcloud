@@ -64,7 +64,7 @@ class AddGroupMemberRequest extends BaseRequest
     {
         $memberListArray = [];
         foreach ($memberList as $item) {
-            $memberListArray['Member_Account'] = $item;
+            $memberListArray[]['Member_Account'] = $item;
         }
 
         $this->setParameter('MemberList', $memberListArray);
