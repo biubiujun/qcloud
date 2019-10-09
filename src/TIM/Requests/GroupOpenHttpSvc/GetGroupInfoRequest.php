@@ -14,11 +14,11 @@ class GetGroupInfoRequest extends BaseRequest
     /**
      * GetGroupInfo constructor.
      *
-     * @param string|array $groupList
+     * @param string|array $groupIdList
      */
-    public function __construct($groupList)
+    public function __construct($groupIdList)
     {
-        $this->setGroupList($groupList);
+        $this->setGroupList($groupIdList);
     }
 
     /**
@@ -30,13 +30,13 @@ class GetGroupInfoRequest extends BaseRequest
     }
 
     /**
-     * @param string|array $groupList
+     * @param string|array $groupIdList
      *
      * @return $this
      */
-    public function setGroupList($groupList)
+    public function setGroupIdList($groupIdList)
     {
-        $this->setParameter('GroupList', is_array($groupList) ? $groupList : [$groupList]);
+        $this->setParameter('GroupIdList', is_array($groupIdList) ? $groupIdList : [$groupIdList]);
 
         return $this;
     }
