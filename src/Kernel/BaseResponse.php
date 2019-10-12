@@ -16,6 +16,11 @@ abstract class BaseResponse
     /**
      * @var bool
      */
+    protected $hasActionStatus = true;
+
+    /**
+     * @var bool
+     */
     protected $isSuccessful;
 
     /**
@@ -40,9 +45,16 @@ abstract class BaseResponse
             $this->isSuccessful = true;
             $this->content = $content;
         } else {
-            $this->isSuccessful = false;
-            if (isset($content['ActionStatus']) && 'FAIL' == $content['ActionStatus']) {
-                throw new BadRequestException($content['ErrorInfo'], $content['ErrorCode']);
+            if (true === $this->hasActionStatus) {
+                $this->isSuccessful = false;
+                if (isset($content['ActionStatus']) && 'FAIL' == $content['ActionStatus']) {
+                    throw new BadRequestException($content['ErrorInfo'], $content['ErrorCode']);
+                }
+            } else {
+                if (0 == $content['ErrorCode']) {
+                    $this->isSuccessful = true;
+                    $this->content = $content;
+                }
             }
         }
     }
