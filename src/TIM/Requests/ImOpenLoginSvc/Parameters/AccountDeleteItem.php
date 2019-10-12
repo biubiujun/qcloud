@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\TIM\Parameters;
+namespace BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 

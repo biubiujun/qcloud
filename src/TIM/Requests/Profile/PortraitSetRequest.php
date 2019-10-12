@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\Profile;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\ProfileItem;
+use BiuBiuJun\QCloud\TIM\Requests\Profile\Parameters\ProfileItem;
 
 /**
  * Class PortraitSetRequest
@@ -15,8 +15,8 @@ class PortraitSetRequest extends BaseRequest
     /**
      * PortraitSetRequest constructor.
      *
-     * @param string                                       $fromAccount
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\ProfileItem $profileItem
+     * @param string                                                        $fromAccount
+     * @param \BiuBiuJun\QCloud\TIM\Requests\Profile\Parameters\ProfileItem $profileItem
      */
     public function __construct(string $fromAccount, ProfileItem $profileItem)
     {
@@ -45,7 +45,7 @@ class PortraitSetRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\ProfileItem $profileItem
+     * @param \BiuBiuJun\QCloud\TIM\Requests\Profile\Parameters\ProfileItem $profileItem
      *
      * @return $this
      */

@@ -3,7 +3,7 @@
 namespace BiuBiuJun\Tests\TIM;
 
 use BiuBiuJun\QCloud\TIM\Constants\Portrait;
-use BiuBiuJun\QCloud\TIM\Parameters\ProfileItem;
+use BiuBiuJun\QCloud\TIM\Requests\Profile\Parameters\ProfileItem;
 use BiuBiuJun\QCloud\TIM\Requests\Profile\PortraitGetRequest;
 use BiuBiuJun\QCloud\TIM\Requests\Profile\PortraitSetRequest;
 use BiuBiuJun\Tests\TestCase;

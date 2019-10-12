@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\OpenIm;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\MsgBody;
+use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody;
 
 /**
  * Class ImportMsgRequest
@@ -15,10 +15,10 @@ class ImportMsgRequest extends BaseRequest
     /**
      * ImportMsgRequest constructor.
      *
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
-     * @param string                                   $toAccount
-     * @param string                                   $fromAccount
-     * @param int                                      $syncFromOldSystem
+     * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody $msgBody
+     * @param string                                                   $toAccount
+     * @param string                                                   $fromAccount
+     * @param int                                                      $syncFromOldSystem
      */
     public function __construct(MsgBody $msgBody, string $toAccount, string $fromAccount = '', int $syncFromOldSystem = 2)
     {
@@ -76,7 +76,7 @@ class ImportMsgRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
+     * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody $msgBody
      *
      * @return $this
      */

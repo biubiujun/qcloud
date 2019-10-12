@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\Sns;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\FriendItem;
+use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
 
 /**
  * Class FriendAddRequest
@@ -15,10 +15,10 @@ class FriendAddRequest extends BaseRequest
     /**
      * FriendAddRequest constructor.
      *
-     * @param string $fromAccount
-     * @param array  $addFriendItem
+     * @param string                                                         $fromAccount
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem $addFriendItem
      */
-    public function __construct(string $fromAccount, array $addFriendItem)
+    public function __construct(string $fromAccount, $addFriendItem)
     {
         $this->setFromAccount($fromAccount)
             ->setAddFriendItem($addFriendItem);
@@ -45,18 +45,21 @@ class FriendAddRequest extends BaseRequest
     }
 
     /**
-     * @param array $addFriendItem
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem $addFriendItem
      *
      * @return $this
      */
-    public function setAddFriendItem(array $addFriendItem)
+    public function setAddFriendItem($addFriendItem)
     {
-        foreach ($addFriendItem as &$item) {
-            if ($item instanceof FriendItem) {
-                $item = $item->getParameters();
+        if ($addFriendItem instanceof FriendItem) {
+            $addFriendItem = $addFriendItem->getParameters();
+        } elseif (is_array($addFriendItem)) {
+            foreach ($addFriendItem as &$item) {
+                if ($item instanceof FriendItem) {
+                    $item = $item->getParameters();
+                }
             }
         }
-
         $this->setParameter('AddFriendItem', $addFriendItem);
 
         return $this;

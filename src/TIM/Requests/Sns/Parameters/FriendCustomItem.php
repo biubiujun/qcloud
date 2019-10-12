@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\TIM\Parameters;
+namespace BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
@@ -11,7 +11,7 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
  */
 class FriendCustomItem extends BaseParameter
 {
-    public function setIM(string $tag, string $value)
+    public function setIMTag(string $tag, string $value)
     {
         $this->parameters[] = [
             'Tag' => "Tag_SNS_IM_{$tag}",
@@ -23,7 +23,7 @@ class FriendCustomItem extends BaseParameter
      * @param string $tag
      * @param string $value
      */
-    public function setCustom(string $tag, string $value)
+    public function setCustomTag(string $tag, string $value)
     {
         $this->parameters[] = [
             'Tag' => "Tag_SNS_Custom_{$tag}",

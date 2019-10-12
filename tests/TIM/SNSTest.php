@@ -3,7 +3,7 @@
 namespace BiuBiuJun\Tests\TIM;
 
 use BiuBiuJun\QCloud\TIM\Parameters\FriendCustomItem;
-use BiuBiuJun\QCloud\TIM\Parameters\FriendItem;
+use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
 use BiuBiuJun\QCloud\TIM\Requests\Sns\BlackListGetRequest;
 use BiuBiuJun\QCloud\TIM\Requests\Sns\FriendAddRequest;
 use BiuBiuJun\QCloud\TIM\Requests\Sns\FriendImportRequest;

@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\MsgBody;
+use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody;
 
 /**
  * Class importGroupMsgRequest
@@ -15,13 +15,13 @@ class importGroupMsgRequest extends BaseRequest
     /**
      * importGroupMsgRequest constructor.
      *
-     * @param string                                   $groupId
-     * @param string                                   $msgList
-     * @param string                                   $fromAccount
-     * @param int                                      $sendTime
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
-     * @param string                                   $msgType
-     * @param array                                    $msgContent
+     * @param string                                                   $groupId
+     * @param string                                                   $msgList
+     * @param string                                                   $fromAccount
+     * @param int                                                      $sendTime
+     * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody $msgBody
+     * @param string                                                   $msgType
+     * @param array                                                    $msgContent
      */
     public function __construct(string $groupId, string $msgList, string $fromAccount, int $sendTime, MsgBody $msgBody, string $msgType, array $msgContent)
     {
@@ -91,7 +91,7 @@ class importGroupMsgRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgBody $msgBody
+     * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody $msgBody
      *
      * @return $this
      */

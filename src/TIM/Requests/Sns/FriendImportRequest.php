@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\Sns;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\FriendItem;
+use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
 
 /**
  * Class FriendImportRequest

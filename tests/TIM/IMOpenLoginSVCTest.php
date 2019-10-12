@@ -2,11 +2,11 @@
 
 namespace BiuBiuJun\Tests\TIM;
 
-use BiuBiuJun\QCloud\TIM\Parameters\AccountDeleteItem;
 use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\AccountDeleteRequest;
 use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\AccountImportRequest;
 use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\KickRequest;
 use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\MultiAccountImportRequest;
+use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\Parameters\AccountDeleteItem;
 use BiuBiuJun\Tests\TestCase;
 
 class IMOpenLoginSVCTest extends TestCase

@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Parameters\AccountDeleteItem;
+use BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\Parameters\AccountDeleteItem;
 
 /**
  * Class AccountDeleteRequest
@@ -15,7 +15,7 @@ class AccountDeleteRequest extends BaseRequest
     /**
      * AccountDeleteRequest constructor.
      *
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\AccountDeleteItem $accountDeleteItem
+     * @param \BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\Parameters\AccountDeleteItem $accountDeleteItem
      */
     public function __construct(AccountDeleteItem $accountDeleteItem)
     {
@@ -31,7 +31,7 @@ class AccountDeleteRequest extends BaseRequest
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\AccountDeleteItem $parameter
+     * @param \BiuBiuJun\QCloud\TIM\Requests\ImOpenLoginSvc\Parameters\AccountDeleteItem $parameter
      *
      * @return $this
      */

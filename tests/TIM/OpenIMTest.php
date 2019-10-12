@@ -2,10 +2,10 @@
 
 namespace BiuBiuJun\Tests\TIM;
 
-use BiuBiuJun\QCloud\TIM\Parameters\MsgBody;
 use BiuBiuJun\QCloud\TIM\Parameters\MsgElements\Text;
 use BiuBiuJun\QCloud\TIM\Requests\OpenIm\BatchSendMsgRequest;
 use BiuBiuJun\QCloud\TIM\Requests\OpenIm\ImportMsgRequest;
+use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody;
 use BiuBiuJun\QCloud\TIM\Requests\OpenIm\SendMsgRequest;
 use BiuBiuJun\Tests\TestCase;
 

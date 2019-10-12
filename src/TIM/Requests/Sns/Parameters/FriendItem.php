@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\TIM\Parameters;
+namespace BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
@@ -108,7 +108,7 @@ class FriendItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\FriendCustomItem $friendCustomItem
+     * @param \BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendCustomItem $friendCustomItem
      *
      * @return $this
      */
@@ -120,7 +120,7 @@ class FriendItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\FriendCustomItem $friendCustomItem
+     * @param \BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendCustomItem $friendCustomItem
      *
      * @return $this
      */
