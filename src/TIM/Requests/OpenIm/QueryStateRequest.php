@@ -14,9 +14,9 @@ class QueryStateRequest extends BaseRequest
     /**
      * MultiAccountImport constructor.
      *
-     * @param array $accounts
+     * @param string|array $accounts
      */
-    public function __construct(array $accounts)
+    public function __construct($accounts)
     {
         $this->setAccounts($accounts);
     }
@@ -27,13 +27,13 @@ class QueryStateRequest extends BaseRequest
     }
 
     /**
-     * @param array $accounts
+     * @param string|array $accounts
      *
      * @return $this
      */
-    public function setAccounts(array $accounts)
+    public function setAccounts($accounts)
     {
-        $this->setParameter('Accounts', $accounts);
+        $this->setParameter('Accounts', is_array($accounts) ? $accounts : [$accounts]);
 
         return $this;
     }

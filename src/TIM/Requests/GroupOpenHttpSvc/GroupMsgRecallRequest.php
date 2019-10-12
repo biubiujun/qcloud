@@ -14,15 +14,13 @@ class GroupMsgRecallRequest extends BaseRequest
     /**
      * GroupMsgRecallRequest constructor.
      *
-     * @param string $groupId
-     * @param array  $msgSeqList
-     * @param int    $msgSeq
+     * @param string    $groupId
+     * @param int|array $msgSeqList
      */
-    public function __construct(string $groupId, array $msgSeqList, int $msgSeq)
+    public function __construct(string $groupId, $msgSeqList)
     {
         $this->setGroupId($groupId)
-            ->setMsgSeqList($msgSeqList)
-            ->setMsgSeq($msgSeq);
+            ->setMsgSeqList($msgSeqList);
     }
 
     /**
@@ -46,25 +44,13 @@ class GroupMsgRecallRequest extends BaseRequest
     }
 
     /**
-     * @param array $msgSeqList
+     * @param int|array $msgSeqList
      *
      * @return $this
      */
-    public function setMsgSeqList(array $msgSeqList)
+    public function setMsgSeqList($msgSeqList)
     {
-        $this->setParameter('MsgSeqList', $msgSeqList);
-
-        return $this;
-    }
-
-    /**
-     * @param int $msgSeq
-     *
-     * @return $this
-     */
-    public function setMsgSeq(int $msgSeq)
-    {
-        $this->setParameter('MsgSeq', $msgSeq);
+        $this->setParameter('MsgSeqList', is_array($msgSeqList) ? $msgSeqList : [$msgSeqList]);
 
         return $this;
     }

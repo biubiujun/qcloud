@@ -3,6 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\Sns;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
 
 /**
  * Class FriendUpdateRequest
@@ -12,12 +13,17 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 class FriendUpdateRequest extends BaseRequest
 {
     /**
+     * @var array
+     */
+    protected $updateItem = [];
+
+    /**
      * FriendUpdateRequest constructor.
      *
-     * @param string $fromAccount
-     * @param array  $updateItem
+     * @param string                                                         $fromAccount
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem $updateItem
      */
-    public function __construct(string $fromAccount, array $updateItem)
+    public function __construct(string $fromAccount, $updateItem)
     {
         $this->setFromAccount($fromAccount)
             ->setUpdateItem($updateItem);
@@ -44,14 +50,30 @@ class FriendUpdateRequest extends BaseRequest
     }
 
     /**
-     * @param array $updateItem
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem $updateItem
      *
      * @return $this
      */
-    public function setUpdateItem(array $updateItem)
+    public function setUpdateItem($updateItem)
     {
-        $this->setParameter('UpdateItem', $updateItem);
+        if ($updateItem instanceof FriendItem) {
+            $this->updateItem[] = $updateItem->getParameters();
+        } else {
+            foreach ($updateItem as $item) {
+                $this->updateItem[] = $item instanceof FriendItem ? $item->getParameters() : $item;
+            }
+        }
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getParameters()
+    {
+        $this->setParameter('UpdateItem', $this->updateItem);
+
+        return parent::getParameters();
     }
 }

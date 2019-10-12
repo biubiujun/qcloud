@@ -2,7 +2,7 @@
 
 namespace BiuBiuJun\QCloud\TIM\Constants;
 
-class Friend
+class SnsIm
 {
     /*
      * 加好友方式
@@ -24,4 +24,22 @@ class Friend
     const CHECK_RESULT_TYPE_SINGLE = 'CheckResult_Type_Single';// 单向校验好友关系
 
     const CHECK_RESULT_TYPE_BOTH = 'CheckResult_Type_Both';// 双向校验好友关系
+
+    /*
+     * 校验黑名单
+     */
+    const BLACK_CHECK_RESULT_TYPE_SINGLE = 'BlackCheckResult_Type_Single';// 单向校验黑名单关系
+
+    const BLACK_CHECK_RESULT_TYPE_BOTH = 'BlackCheckResult_Type_Both';// 双向校验黑名单关系
+
+    /*
+     *
+     */
+    const TAG_GROUP = 'Tag_SNS_IM_Group';// 好友分组
+
+    const TAG_REMARK = 'Tag_SNS_IM_Remark';// 好友备注
+
+    const TAG_ADD_SOURCE = 'Tag_SNS_IM_AddSource';// 加好友来源
+
+    const TAG_ADD_WORDING = 'Tag_SNS_IM_AddWording';// 加好友附言
 }

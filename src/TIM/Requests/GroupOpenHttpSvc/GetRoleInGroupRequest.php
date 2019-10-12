@@ -11,7 +11,13 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
  */
 class GetRoleInGroupRequest extends BaseRequest
 {
-    public function __construct(string $groupId, array $userAccount)
+    /**
+     * GetRoleInGroupRequest constructor.
+     *
+     * @param string       $groupId
+     * @param string|array $userAccount
+     */
+    public function __construct(string $groupId, $userAccount)
     {
         $this->setGroupId($groupId)
             ->setUserAccount($userAccount);
@@ -38,13 +44,13 @@ class GetRoleInGroupRequest extends BaseRequest
     }
 
     /**
-     * @param array $userAccount
+     * @param string|array $userAccount
      *
      * @return $this
      */
-    public function setUserAccount(array $userAccount)
+    public function setUserAccount($userAccount)
     {
-        $this->setParameter('User_Account', $userAccount);
+        $this->setParameter('User_Account', is_array($userAccount) ? $userAccount : [$userAccount]);
 
         return $this;
     }

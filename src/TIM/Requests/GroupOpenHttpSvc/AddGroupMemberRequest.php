@@ -14,10 +14,10 @@ class AddGroupMemberRequest extends BaseRequest
     /**
      * AddGroupMemberRequest constructor.
      *
-     * @param string $groupId
-     * @param array  $memberList
+     * @param string       $groupId
+     * @param string|array $memberList
      */
-    public function __construct(string $groupId, array $memberList)
+    public function __construct(string $groupId, $memberList)
     {
         $this->setGroupId($groupId)
             ->setMemberList($memberList);
@@ -56,13 +56,14 @@ class AddGroupMemberRequest extends BaseRequest
     }
 
     /**
-     * @param array $memberList
+     * @param string|array $memberList
      *
      * @return $this
      */
-    public function setMemberList(array $memberList)
+    public function setMemberList($memberList)
     {
         $memberListArray = [];
+        $memberList = is_array($memberList) ? $memberList : [$memberList];
         foreach ($memberList as $item) {
             $memberListArray[]['Member_Account'] = $item;
         }

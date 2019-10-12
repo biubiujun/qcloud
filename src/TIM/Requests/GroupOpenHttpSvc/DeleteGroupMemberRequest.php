@@ -14,10 +14,10 @@ class DeleteGroupMemberRequest extends BaseRequest
     /**
      * DeleteGroupMemberRequest constructor.
      *
-     * @param string $groupId
-     * @param array  $memberToDelAccount
+     * @param string       $groupId
+     * @param string|array $memberToDelAccount
      */
-    public function __construct(string $groupId, array $memberToDelAccount)
+    public function __construct(string $groupId, $memberToDelAccount)
     {
         $this->setGroupId($groupId)
             ->setMemberToDelAccount($memberToDelAccount);
@@ -68,13 +68,13 @@ class DeleteGroupMemberRequest extends BaseRequest
     }
 
     /**
-     * @param array $memberToDelAccount
+     * @param string|array $memberToDelAccount
      *
      * @return $this
      */
-    public function setMemberToDelAccount(array $memberToDelAccount)
+    public function setMemberToDelAccount($memberToDelAccount)
     {
-        $this->setParameter('MemberToDel_Account', $memberToDelAccount);
+        $this->setParameter('MemberToDel_Account', is_array($memberToDelAccount) ? $memberToDelAccount : [$memberToDelAccount]);
 
         return $this;
     }

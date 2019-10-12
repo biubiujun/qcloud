@@ -11,7 +11,11 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
  */
 class FriendCustomItem extends BaseParameter
 {
-    public function setIMTag(string $tag, string $value)
+    /**
+     * @param string       $tag
+     * @param string|array $value
+     */
+    public function setIMTag(string $tag, $value)
     {
         $this->parameters[] = [
             'Tag' => "Tag_SNS_IM_{$tag}",
@@ -20,10 +24,10 @@ class FriendCustomItem extends BaseParameter
     }
 
     /**
-     * @param string $tag
-     * @param string $value
+     * @param string       $tag
+     * @param string|array $value
      */
-    public function setCustomTag(string $tag, string $value)
+    public function setCustomTag(string $tag, $value)
     {
         $this->parameters[] = [
             'Tag' => "Tag_SNS_Custom_{$tag}",

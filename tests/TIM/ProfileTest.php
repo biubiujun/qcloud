@@ -17,7 +17,10 @@ class ProfileTest extends TestCase
             Portrait::TAG_ALLOW_TYPE,
             Portrait::TAG_SELF_SIGNATURE,
         ]);
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\Profile\PortraitGetResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
+
+//        var_dump($response->getUserProfileItem());
 
         $this->assertTrue($response->isSuccessful());
     }
@@ -28,6 +31,7 @@ class ProfileTest extends TestCase
         $profileItem->setNick('biubiubiu')
             ->setGender(Portrait::GENDER_TYPE_UNKNOWN);
         $request = new PortraitSetRequest('ak47', $profileItem);
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\Profile\PortraitSetResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
 
         $this->assertTrue($response->isSuccessful());

@@ -16,9 +16,11 @@ class GetAppInfoRequest extends BaseRequest
      *
      * @param array $requestField
      */
-    public function __construct(array $requestField)
+    public function __construct(array $requestField = [])
     {
-        $this->setRequestField($requestField);
+        if ($requestField) {
+            $this->setRequestField($requestField);
+        }
     }
 
     /**

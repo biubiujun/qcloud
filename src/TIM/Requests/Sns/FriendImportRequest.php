@@ -17,10 +17,10 @@ class FriendImportRequest extends BaseRequest
     /**
      * FriendImportRequest constructor.
      *
-     * @param string $fromAccount
-     * @param array  $addFriendItem
+     * @param string                                                         $fromAccount
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem $addFriendItem
      */
-    public function __construct(string $fromAccount, array $addFriendItem)
+    public function __construct(string $fromAccount, $addFriendItem)
     {
         $this->setFromAccount($fromAccount)
             ->setAddFriendItem($addFriendItem);
@@ -41,7 +41,7 @@ class FriendImportRequest extends BaseRequest
      */
     public function setFromAccount(string $fromAccount)
     {
-        $this->setParameter('Form_Account', $fromAccount);
+        $this->setParameter('From_Account', $fromAccount);
 
         return $this;
     }

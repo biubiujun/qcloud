@@ -14,11 +14,11 @@ class ForbidSendMsgRequest extends BaseRequest
     /**
      * ForbidSendMsgRequest constructor.
      *
-     * @param string $groupId
-     * @param array  $membersAccount
-     * @param int    $shutUpTime
+     * @param string       $groupId
+     * @param string|array $membersAccount
+     * @param int          $shutUpTime
      */
-    public function __construct(string $groupId, array $membersAccount, int $shutUpTime)
+    public function __construct(string $groupId, $membersAccount, int $shutUpTime)
     {
         $this->setGroupId($groupId)
             ->setMembersAccount($membersAccount)
@@ -46,13 +46,13 @@ class ForbidSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param array $membersAccount
+     * @param string|array $membersAccount
      *
      * @return $this
      */
-    public function setMembersAccount(array $membersAccount)
+    public function setMembersAccount($membersAccount)
     {
-        $this->setParameter('Members_Account', $membersAccount);
+        $this->setParameter('Members_Account', is_array($membersAccount) ? $membersAccount : [$membersAccount]);
 
         return $this;
     }

@@ -14,6 +14,7 @@ class IMOpenLoginSVCTest extends TestCase
     public function testAccountImport()
     {
         $request = new AccountImportRequest('ak47-biubiubiu', 'ak47');
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc\AccountImportResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
 
         $this->assertTrue($response->isSuccessful());
@@ -26,7 +27,10 @@ class IMOpenLoginSVCTest extends TestCase
             'ak47-002',
             'ak47-003',
         ]);
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc\MultiAccountImportResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
+
+//        var_dump($response->getFailAccounts());
 
         $this->assertTrue($response->isSuccessful());
     }
@@ -38,7 +42,10 @@ class IMOpenLoginSVCTest extends TestCase
             'ak47-002',
         ]);
         $request = new AccountDeleteRequest($accountDeleteItem);
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc\AccountDeleteResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
+
+//        var_dump($response->getResultItem());
 
         $this->assertTrue($response->isSuccessful());
     }
@@ -46,6 +53,7 @@ class IMOpenLoginSVCTest extends TestCase
     public function testKick()
     {
         $request = new KickRequest('ak47-biubiubiu');
+        /** @var \BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc\KickResponse $response */
         $response = $this->getTIMClient()->sendRequest($request);
 
         $this->assertTrue($response->isSuccessful());

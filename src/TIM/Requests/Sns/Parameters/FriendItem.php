@@ -48,11 +48,11 @@ class FriendItem extends BaseParameter
     }
 
     /**
-     * @param string $remarkTime
+     * @param int $remarkTime
      *
      * @return $this
      */
-    public function setRemarkTime(string $remarkTime)
+    public function setRemarkTime(int $remarkTime)
     {
         $this->setParameter('RemarkTime', $remarkTime);
 
@@ -60,11 +60,11 @@ class FriendItem extends BaseParameter
     }
 
     /**
-     * @param string $groupName
+     * @param array $groupName
      *
      * @return $this
      */
-    public function setGroupName(string $groupName)
+    public function setGroupName(array $groupName)
     {
         $this->setParameter('GroupName', $groupName);
 
@@ -96,11 +96,11 @@ class FriendItem extends BaseParameter
     }
 
     /**
-     * @param string $addTime
+     * @param int $addTime
      *
      * @return $this
      */
-    public function setAddTime(string $addTime)
+    public function setAddTime(int $addTime)
     {
         $this->setParameter('AddTime', $addTime);
 
