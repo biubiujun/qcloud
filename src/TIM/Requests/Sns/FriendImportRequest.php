@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\Sns;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
+use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\SetAddFriendItem;
 
 /**
  * Class FriendImportRequest
@@ -12,6 +12,8 @@ use BiuBiuJun\QCloud\TIM\Requests\Sns\Parameters\FriendItem;
  */
 class FriendImportRequest extends BaseRequest
 {
+    use SetAddFriendItem;
+
     /**
      * FriendImportRequest constructor.
      *
@@ -40,24 +42,6 @@ class FriendImportRequest extends BaseRequest
     public function setFromAccount(string $fromAccount)
     {
         $this->setParameter('Form_Account', $fromAccount);
-
-        return $this;
-    }
-
-    /**
-     * @param array $addFriendItem
-     *
-     * @return $this
-     */
-    public function setAddFriendItem(array $addFriendItem)
-    {
-        foreach ($addFriendItem as &$item) {
-            if ($item instanceof FriendItem) {
-                $item = $item->getParameters();
-            }
-        }
-
-        $this->setParameter('AddFriendItem', $addFriendItem);
 
         return $this;
     }

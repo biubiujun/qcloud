@@ -3,6 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\Parameters\MemberItem;
 
 /**
  * Class CreateGroupRequest
@@ -11,6 +12,11 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
  */
 class CreateGroupRequest extends BaseRequest
 {
+    /**
+     * @var array
+     */
+    protected $memberList = [];
+
     /**
      * CreateGroupRequest constructor.
      *
@@ -154,13 +160,20 @@ class CreateGroupRequest extends BaseRequest
     }
 
     /**
-     * @param array $memberList
+     * @param $MemberList
      *
      * @return $this
      */
-    public function setMemberList(array $memberList)
+    public function setMemberList($MemberList)
     {
-        $this->setParameter('MemberList', $memberList);
+        if ($MemberList instanceof MemberItem) {
+            $this->memberList[] = $MemberList->getParameters();
+        } elseif (is_array($MemberList)) {
+            foreach ($MemberList as $item) {
+                $this->memberList[] = $item instanceof MemberItem ? $item->getParameters() : $item;
+            }
+        }
+        $this->setParameter('MemberList', $this->memberList);
 
         return $this;
     }

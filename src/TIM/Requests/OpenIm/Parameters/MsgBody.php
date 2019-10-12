@@ -30,13 +30,9 @@ class MsgBody extends BaseParameter
         if ($msgElements instanceof MsgElement) {
             $this->parameters[] = $msgElements->transform();
         } elseif (is_array($msgElements)) {
-            $parameters = [];
             foreach ($msgElements as $msgElement) {
-                if ($msgElement instanceof MsgElement) {
-                    $parameters[] = $msgElement->transform();
-                }
+                $this->parameters[] = $msgElement instanceof MsgElement ? $msgElement->transform() : $msgElement;
             }
-            array_push($this->parameters, $parameters);
         }
     }
 }
