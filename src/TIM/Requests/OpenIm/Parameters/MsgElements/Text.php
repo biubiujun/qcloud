@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\TIM\Parameters\MsgElements;
+namespace BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements;
 
 /**
  * Class Text

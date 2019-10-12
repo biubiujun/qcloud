@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\TIM\Parameters\MsgElements;
+namespace BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements;
 
 /**
  * Class Image
@@ -12,9 +12,9 @@ class Image extends MsgElement
     /**
      * Image constructor.
      *
-     * @param string                                                 $uuid
-     * @param int                                                    $imageFormat
-     * @param \BiuBiuJun\QCloud\TIM\Parameters\MsgElements\ImageItem $imageInfoArray
+     * @param string                                                                 $uuid
+     * @param int                                                                    $imageFormat
+     * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements\ImageItem $imageInfoArray
      */
     public function __construct(string $uuid, int $imageFormat, ImageItem $imageInfoArray)
     {

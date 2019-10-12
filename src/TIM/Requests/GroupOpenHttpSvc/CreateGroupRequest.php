@@ -160,16 +160,16 @@ class CreateGroupRequest extends BaseRequest
     }
 
     /**
-     * @param $MemberList
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\Parameters\MemberItem $memberList
      *
      * @return $this
      */
-    public function setMemberList($MemberList)
+    public function setMemberList($memberList)
     {
-        if ($MemberList instanceof MemberItem) {
-            $this->memberList[] = $MemberList->getParameters();
-        } elseif (is_array($MemberList)) {
-            foreach ($MemberList as $item) {
+        if ($memberList instanceof MemberItem) {
+            $this->memberList[] = $memberList->getParameters();
+        } elseif (is_array($memberList)) {
+            foreach ($memberList as $item) {
                 $this->memberList[] = $item instanceof MemberItem ? $item->getParameters() : $item;
             }
         }

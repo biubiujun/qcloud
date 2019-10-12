@@ -3,7 +3,7 @@
 namespace BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
-use BiuBiuJun\QCloud\TIM\Parameters\MsgElements\MsgElement;
+use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements\MsgElement;
 
 /**
  * Class MsgBody
@@ -15,7 +15,7 @@ class MsgBody extends BaseParameter
     /**
      * MsgBody constructor.
      *
-     * @param array|\BiuBiuJun\QCloud\TIM\Parameters\MsgElements\MsgElement $msgElements
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements\MsgElement $msgElements
      */
     public function __construct($msgElements)
     {
@@ -23,7 +23,7 @@ class MsgBody extends BaseParameter
     }
 
     /**
-     * @param array|\BiuBiuJun\QCloud\TIM\Parameters\MsgElements\MsgElement $msgElements
+     * @param array|\BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements\MsgElement $msgElements
      */
     public function setMsgElements($msgElements)
     {

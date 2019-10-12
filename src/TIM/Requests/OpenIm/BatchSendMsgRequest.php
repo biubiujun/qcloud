@@ -16,7 +16,7 @@ class BatchSendMsgRequest extends BaseRequest
      * BatchSendMsgRequest constructor.
      *
      * @param \BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody $msgBody
-     * @param                                                          $toAccount
+     * @param string|array                                             $toAccount
      * @param string                                                   $fromAccount
      * @param int                                                      $syncOtherMachine
      * @param int                                                      $msgLifeTime
@@ -66,7 +66,7 @@ class BatchSendMsgRequest extends BaseRequest
     }
 
     /**
-     * @param $toAccount
+     * @param string|array $toAccount
      *
      * @return $this
      */
