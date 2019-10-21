@@ -4,6 +4,7 @@ namespace BiuBiuJun\QCloud\TIM;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\Kernel\WebRTCSigApi;
 
 /**
  * Class Tim
@@ -20,7 +21,12 @@ class TIM
     /**
      * @var \BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface
      */
-    protected $signature;
+    protected $tlsSignature;
+
+    /**
+     * @var \BiuBiuJun\QCloud\Kernel\WebRTCSigApi
+     */
+    protected $rtcSignature;
 
     /**
      * @var \BiuBiuJun\QCloud\TIM\HttpClient
@@ -40,7 +46,8 @@ class TIM
     {
         $sigApplication = "BiuBiuJun\\QCloud\\Kernel\\$sigVersion";
 
-        $this->signature = new $sigApplication($SDKAppID, $privateKey, $publicKey);
+        $this->tlsSignature = new $sigApplication($SDKAppID, $privateKey, $publicKey);
+        $this->rtcSignature = new WebRTCSigApi($SDKAppID, $privateKey, $publicKey);
         $this->client = new HttpClient($SDKAppID, $identifier, $this->signature, $this->baseUri);
     }
 
@@ -52,7 +59,19 @@ class TIM
      */
     public function getUserSig(string $identifier, $ttl = 5184000)
     {
-        return $this->signature->genSig($identifier, $ttl);
+        return $this->tlsSignature->genSig($identifier, $ttl);
+    }
+
+    /**
+     * @param string $identifier
+     * @param string $roomId
+     * @param int    $expire
+     *
+     * @return string
+     */
+    public function getPrivateMapKey(string $identifier, string $roomId, int $expire = 300)
+    {
+        return $this->rtcSignature->genPrivateMapKey($identifier, $roomId, $expire);
     }
 
     /**

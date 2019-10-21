@@ -201,15 +201,15 @@ class WebRTCSigApi
     }
 
     /**
-     * @param     $userId
-     * @param     $roomId
-     * @param int $expire
+     * @param string $userId
+     * @param string $roomId
+     * @param int    $expire
      *
-     * @return mixed
+     * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    public function genPrivateMapKey($userId, $roomId, $expire = 300)
+    public function genPrivateMapKey(string $userId, string $roomId, int $expire = 300)
     {
         //视频校验位需要用到的字段
         /*
@@ -259,15 +259,15 @@ class WebRTCSigApi
     }
 
     /**
-     * @param $userSig
-     * @param $userId
-     * @param $initTime
-     * @param $expireTime
-     * @param $errorMsg
+     * @param string $userSig
+     * @param string $userId
+     * @param int    $initTime
+     * @param int    $expireTime
+     * @param string $errorMsg
      *
      * @return bool
      */
-    public function verifyUserSig($userSig, $userId, &$initTime, &$expireTime, &$errorMsg)
+    public function verifyUserSig(string $userSig, string $userId, &$initTime, &$expireTime, &$errorMsg)
     {
         try {
             $errorMsg = '';
@@ -308,12 +308,12 @@ class WebRTCSigApi
     }
 
     /**
-     * @param $privateMapKey
-     * @param $userId
-     * @param $initTime
-     * @param $expireTime
-     * @param $userBuf
-     * @param $errorMsg
+     * @param string $privateMapKey
+     * @param string $userId
+     * @param int    $initTime
+     * @param int    $expireTime
+     * @param string $userBuf
+     * @param string $errorMsg
      *
      * @return bool
      */
