@@ -52,7 +52,7 @@ class TIM
      */
     public function getUserSig(string $identifier, $ttl = 5184000)
     {
-        return $this->signature->generate($identifier, $ttl);
+        return $this->signature->genSig($identifier, $ttl);
     }
 
     /**

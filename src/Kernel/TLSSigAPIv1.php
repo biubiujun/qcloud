@@ -2,7 +2,6 @@
 
 namespace BiuBiuJun\QCloud\Kernel;
 
-use BiuBiuJun\QCloud\Exceptions\InvalidConfigException;
 use BiuBiuJun\QCloud\Exceptions\SignatureException;
 use BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface;
 
@@ -13,30 +12,12 @@ use BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface;
  */
 class TLSSigAPIv1 implements TLSSigAPIInterface
 {
+    use SigKey;
+
     /**
      * @var string
      */
     private $SDKAppID;
-
-    /**
-     * @var string|bool
-     */
-    protected $privateKey = false;
-
-    /**
-     * @var bool
-     */
-    protected $isSetPrivateKey = false;
-
-    /**
-     * @var string|bool
-     */
-    protected $publicKey = false;
-
-    /**
-     * @var bool
-     */
-    protected $isSetPublicKey = false;
 
     /**
      * SigV1 constructor.
@@ -59,60 +40,12 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
     }
 
     /**
-     * @return bool
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
-     */
-    public function setPrivateKey()
-    {
-        if (false === $this->isSetPrivateKey) {
-            if (is_file($this->privateKey)) {
-                $privateKey = "file://{$this->privateKey}";
-            } else {
-                $key = wordwrap($this->privateKey, 64, "\n", true);
-                $privateKey = "-----BEGIN PRIVATE KEY-----\n{$key}\n-----END PRIVATE KEY-----";
-            }
-
-            $this->privateKey = openssl_pkey_get_private($privateKey);
-            if (false === $this->privateKey) {
-                throw new InvalidConfigException(openssl_error_string());
-            }
-            $this->isSetPrivateKey = true;
-        }
-
-        return true;
-    }
-
-    /**
-     * @return bool
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
-     */
-    public function setPublicKey()
-    {
-        if (false === $this->isSetPublicKey) {
-            if (is_file($this->publicKey)) {
-                $publicKey = "file://{$this->publicKey}";
-            } else {
-                $key = wordwrap($this->privateKey, 64, "\n", true);
-                $publicKey = "-----BEGIN PUBLIC KEY-----\n{$key}\n-----END PUBLIC KEY-----";
-            }
-
-            $this->publicKey = openssl_pkey_get_public($publicKey);
-            if (false === $this->publicKey) {
-                throw new InvalidConfigException(openssl_error_string());
-            }
-            $this->isSetPublicKey = true;
-        }
-
-        return true;
-    }
-
-    /**
      * @param string $string
      *
      * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    private function base64Encode($string)
+    private function base64Encode(string $string)
     {
         $replace = ['+' => '*', '/' => '-', '=' => '_'];
         $base64 = base64_encode($string);
@@ -129,7 +62,7 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
      * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    private function base64Decode($base64)
+    private function base64Decode(string $base64)
     {
         $replace = ['+' => '*', '/' => '-', '=' => '_'];
         $string = str_replace(array_values($replace), array_keys($replace), $base64);
@@ -178,7 +111,7 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    private function sign($data)
+    private function sign(string $data)
     {
         $this->setPrivateKey();
         $signature = '';
@@ -193,15 +126,15 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
      * @param string $data
      * @param string $sig
      *
-     * @return int
+     * @return bool|int
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    private function opensslVerify($data, $sig)
+    private function verify(string $data, string $sig)
     {
         $this->setPublicKey();
         $ret = openssl_verify($data, $sig, $this->publicKey, 'sha256');
-        if (-1 == $ret) {
+        if ($ret == -1) {
             throw new SignatureException(openssl_error_string());
         }
 
@@ -216,7 +149,7 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    public function generate(string $identifier, int $expire = 15552000)
+    public function genSig(string $identifier, int $expire = 15552000)
     {
         $json = [
             'TLS.account_type' => '0',
@@ -255,7 +188,7 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
      * @return bool
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      */
-    public function verify(string $sig, string $identifier, &$initTime, &$expireTime, &$errorMsg)
+    public function verifySig(string $sig, string $identifier, &$initTime, &$expireTime, &$errorMsg)
     {
         try {
             $errorMsg = '';
@@ -280,12 +213,131 @@ class TLSSigAPIv1 implements TLSSigAPIInterface
             if (false == $signature) {
                 throw new SignatureException('sig json_decode error');
             }
-            $succ = $this->opensslVerify($content, $signature);
+            $success = $this->verify($content, $signature);
+            if (!$success) {
+                throw new SignatureException('verify failed');
+            }
+            $initTime = $json['TLS.time'];
+            $expireTime = $json['TLS.expire_after'];
+
+            return true;
+        } catch (SignatureException $ex) {
+            $errorMsg = $ex->getMessage();
+
+            return false;
+        }
+    }
+
+    /**
+     * @param array $json
+     *
+     * @return string
+     * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
+     */
+    private function genSignContentWithUserBuf(array $json)
+    {
+        $members = [
+            'TLS.appid_at_3rd',
+            'TLS.account_type',
+            'TLS.identifier',
+            'TLS.sdk_appid',
+            'TLS.time',
+            'TLS.expire_after',
+            'TLS.userbuf',
+        ];
+        $content = '';
+        foreach ($members as $member) {
+            if (!isset($json[$member])) {
+                throw new SignatureException('json need ' . $member);
+            }
+            $content .= "{$member}:{$json[$member]}\n";
+        }
+
+        return $content;
+    }
+
+    /**
+     * @param string $identifier
+     * @param string $userBuf
+     * @param int    $expire
+     *
+     * @return string
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
+     * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
+     */
+    public function genSigWithUserBuf(string $identifier, string $userBuf, int $expire = 15552000)
+    {
+        $json = [
+            'TLS.account_type' => '0',
+            'TLS.identifier' => (string)$identifier,
+            'TLS.appid_at_3rd' => '0',
+            'TLS.sdk_appid' => (string)$this->SDKAppID,
+            'TLS.expire_after' => (string)$expire,
+            'TLS.version' => '201512300000',
+            'TLS.time' => (string)time(),
+            'TLS.userbuf' => base64_encode($userBuf),
+        ];
+        $content = $this->genSignContentWithUserbuf($json);
+        $signature = $this->sign($content);
+        $json['TLS.sig'] = base64_encode($signature);
+        if ($json['TLS.sig'] === false) {
+            throw new SignatureException('base64_encode error');
+        }
+        $json_text = json_encode($json);
+        if ($json_text === false) {
+            throw new SignatureException('json_encode error');
+        }
+        $compressed = gzcompress($json_text);
+        if ($compressed === false) {
+            throw new SignatureException('gzcompress error');
+        }
+
+        return $this->base64Encode($compressed);
+    }
+
+    /**
+     * @param $sig
+     * @param $identifier
+     * @param $initTime
+     * @param $expireTime
+     * @param $userBuf
+     * @param $errorMsg
+     *
+     * @return bool
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
+     */
+    public function verifySigWithUserBuf(string $sig, string $identifier, &$initTime, &$expireTime, &$userBuf, &$errorMsg)
+    {
+        try {
+            $errorMsg = '';
+            $decoded_sig = $this->base64Decode($sig);
+            $uncompressed_sig = gzuncompress($decoded_sig);
+            if ($uncompressed_sig === false) {
+                throw new SignatureException('gzuncompress error');
+            }
+            $json = json_decode($uncompressed_sig);
+            if ($json == false) {
+                throw new SignatureException('json_decode error');
+            }
+            $json = (array)$json;
+            if ($json['TLS.identifier'] !== $identifier) {
+                throw new SignatureException("identifier error sigid:{$json['TLS.identifier']} id:{$identifier}");
+            }
+            if ($json['TLS.sdk_appid'] != $this->SDKAppID) {
+                throw new SignatureException("appid error sigappid:{$json['TLS.appid']} thisappid:{$this->SDKAppID}");
+            }
+            $content = $this->genSignContentWithUserbuf($json);
+            $signature = base64_decode($json['TLS.sig']);
+            if ($signature == false) {
+                throw new SignatureException('sig json_decode error');
+            }
+            $succ = $this->verify($content, $signature);
             if (!$succ) {
                 throw new SignatureException('verify failed');
             }
             $initTime = $json['TLS.time'];
             $expireTime = $json['TLS.expire_after'];
+            $userBuf = base64_decode($json['TLS.userbuf']);
 
             return true;
         } catch (SignatureException $ex) {

@@ -53,7 +53,7 @@ class HttpClient
     {
         $this->SDKAppID = $SDKAppID;
         $this->identifier = $identifier;
-        $this->userSig = $sig->generate($this->identifier);
+        $this->userSig = $sig->genSig($this->identifier);
         $this->baseUri = $baseUri;
     }
 
