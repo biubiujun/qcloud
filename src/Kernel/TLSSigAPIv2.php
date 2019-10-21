@@ -142,13 +142,13 @@ class TLSSigAPIv2 implements TLSSigAPIInterface
 
     /**
      * @param string $identifier
-     * @param int    $expire
      * @param string $userBuf
+     * @param int    $expire
      *
      * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
-    public function genSigWithUserBuf(string $identifier, int $expire, string $userBuf)
+    public function genSigWithUserBuf(string $identifier, string $userBuf, int $expire = 15552000)
     {
         return $this->__genSig($identifier, $expire, $userBuf, true);
     }

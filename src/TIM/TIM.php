@@ -48,7 +48,7 @@ class TIM
 
         $this->tlsSignature = new $sigApplication($SDKAppID, $privateKey, $publicKey);
         $this->rtcSignature = new WebRTCSigApi($SDKAppID, $privateKey, $publicKey);
-        $this->client = new HttpClient($SDKAppID, $identifier, $this->signature, $this->baseUri);
+        $this->client = new HttpClient($SDKAppID, $identifier, $this->tlsSignature, $this->baseUri);
     }
 
     /**

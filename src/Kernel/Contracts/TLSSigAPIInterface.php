@@ -19,18 +19,18 @@ interface TLSSigAPIInterface
 
     /**
      * @param string $identifier
-     * @param int    $expire
      * @param string $userBuf
+     * @param int    $expire
      *
      * @return string
      */
-    public function genSigWithUserBuf(string $identifier, int $expire, string $userBuf);
+    public function genSigWithUserBuf(string $identifier, string $userBuf, int $expire);
 
     /**
      * @param string $sig
      * @param string $identifier
-     * @param int $initTime
-     * @param int $expireTime
+     * @param int    $initTime
+     * @param int    $expireTime
      * @param string $errorMsg
      *
      * @return bool
@@ -40,8 +40,8 @@ interface TLSSigAPIInterface
     /**
      * @param string $sig
      * @param string $identifier
-     * @param int $initTime
-     * @param int $expireTime
+     * @param int    $initTime
+     * @param int    $expireTime
      * @param string $userBuf
      * @param string $errorMsg
      *
