@@ -68,6 +68,8 @@ class TIM
      * @param int    $expire
      *
      * @return string
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
+     * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
     public function getPrivateMapKey(string $identifier, string $roomId, int $expire = 300)
     {
