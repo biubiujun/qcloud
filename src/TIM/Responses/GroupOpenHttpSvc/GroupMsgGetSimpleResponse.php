@@ -19,7 +19,7 @@ class GroupMsgGetSimpleResponse extends BaseResponse
      */
     public function getIsFinished()
     {
-        return $this->content['isFinished'];
+        return $this->content['IsFinished'];
     }
 
     /**
