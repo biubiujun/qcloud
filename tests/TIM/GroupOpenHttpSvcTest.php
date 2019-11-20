@@ -2,6 +2,7 @@
 
 namespace BiuBiuJun\Tests\TIM;
 
+use BiuBiuJun\QCloud\TIM\Callback\GroupOpenHttpSvc\GroupMsgGetSimpleCallback;
 use BiuBiuJun\QCloud\TIM\Constants\Group;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\AddGroupMemberRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\ChangeGroupOwnerRequest;
@@ -15,6 +16,7 @@ use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GetGroupMemberInfoRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GetGroupShuttedUinRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GetJoinedGroupListRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GetRoleInGroupRequest;
+use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GroupMsgGetSimpleRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\GroupMsgRecallRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\ImportGroupRequest;
 use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\ModifyGroupBaseInfoRequest;
@@ -25,6 +27,9 @@ use BiuBiuJun\QCloud\TIM\Requests\GroupOpenHttpSvc\SendGroupSystemNotificationRe
 use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgBody;
 use BiuBiuJun\QCloud\TIM\Requests\OpenIm\Parameters\MsgElements\Text;
 use BiuBiuJun\Tests\TestCase;
+use GuzzleHttp\Pool;
+use Psr\Http\Message\ResponseInterface;
+use function GuzzleHttp\Promise\settle;
 
 class GroupOpenHttpSvcTest extends TestCase
 {
@@ -261,7 +266,52 @@ class GroupOpenHttpSvcTest extends TestCase
     {
     }
 
+    /**
+     * @return mixed
+     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
+     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
+     */
     public function testGroupMsgGetSimple()
     {
+        $groupId = 1984027965;
+        $msgNumber = 20;
+
+        // 获取第一组数据的最小seq
+        $request = new GroupMsgGetSimpleRequest($groupId, $msgNumber);
+        $response = $this->getTIMClient()->sendRequest($request);
+        $callback = new GroupMsgGetSimpleCallback();
+
+        if ($response->isSuccessful()) {
+            $nextMsgSeq = $callback->success($response);
+
+            $requests = function ($msgSeq) use ($request, $msgNumber) {
+                $msgSeq -= $msgNumber;
+                yield function () use ($request, $msgSeq) {
+                    $request->setReqMsgSeq($msgSeq);
+
+                    return $this->getTIMClient()->sendRequest($request, true);
+                };
+            };
+
+            $pool = new Pool($this->getTIMClient()->getClient()->getHttpClient(), $requests($nextMsgSeq), [
+                'concurrency' => 5,
+                'fulfilled' => function ($resp, $index) use ($response, $callback) {
+                    $response->handle($resp);
+                    $callback->success($response);
+                },
+                'rejected' => function ($reason, $index) use ($response, $callback) {
+                    $callback->error($reason);
+                },
+            ]);
+
+            $promise = $pool->promise();
+            $promise->wait();
+
+            $messages = $callback->getMessages();
+            var_dump($messages);
+
+            $this->assertTrue(true);
+        }
     }
 }

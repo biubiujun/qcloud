@@ -39,9 +39,9 @@ class WebRTCSigApi
     }
 
     /**
-     * @param $string
+     * @param string $string
      *
-     * @return mixed
+     * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
      */
     private function base64Encode($string)
@@ -56,7 +56,7 @@ class WebRTCSigApi
     }
 
     /**
-     * @param $base64
+     * @param string $base64
      *
      * @return false|string
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException
@@ -92,8 +92,8 @@ class WebRTCSigApi
     }
 
     /**
-     * @param $data
-     * @param $sig
+     * @param string $data
+     * @param string $sig
      *
      * @return int
      * @throws \BiuBiuJun\QCloud\Exceptions\SignatureException

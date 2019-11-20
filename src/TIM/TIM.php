@@ -4,6 +4,7 @@ namespace BiuBiuJun\QCloud\TIM;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\Kernel\HttpClient;
 use BiuBiuJun\QCloud\Kernel\WebRTCSigApi;
 
 /**
@@ -29,7 +30,7 @@ class TIM
     protected $rtcSignature;
 
     /**
-     * @var \BiuBiuJun\QCloud\TIM\HttpClient
+     * @var \BiuBiuJun\QCloud\Kernel\HttpClient
      */
     protected $client;
 
@@ -78,14 +79,14 @@ class TIM
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param bool                                 $isAsync
      *
      * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
      * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function sendRequest(BaseRequest $request)
+    public function sendRequest(BaseRequest $request, $isAsync = false)
     {
         $responseApplication = str_replace('Request', 'Response', get_class($request));
         if (!class_exists($responseApplication)) {
@@ -93,6 +94,23 @@ class TIM
         }
         $response = new $responseApplication();
 
-        return $this->client->request($request, $response);
+        if (false === $isAsync) {
+            return $this->client->request($request, $response);
+        } else {
+            return $this->client->requestAsync($request);
+        }
+    }
+
+    public function pool()
+    {
+        $this->client->pool();
+    }
+
+    /**
+     * @return \BiuBiuJun\QCloud\Kernel\HttpClient
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 }
