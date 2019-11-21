@@ -1,8 +1,9 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Kernel;
+namespace BiuBiuJun\QCloud\Kernel\HttpClient;
 
-use BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface;
+use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\Kernel\BaseResponse;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -13,12 +14,7 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
-/**
- * Class HttpClient
- *
- * @package BiuBiuJun\QCloud\TIM
- */
-class HttpClient
+abstract class HttpClient
 {
     const MAX_RETRIES = 3;
 
@@ -30,38 +26,7 @@ class HttpClient
     /**
      * @var string
      */
-    protected $SDKAppID;
-
-    /**
-     * @var string
-     */
-    protected $identifier;
-
-    /**
-     * @var string
-     */
-    private $userSig;
-
-    /**
-     * @var string
-     */
-    private $baseUri;
-
-    /**
-     * HttpClient constructor.
-     *
-     * @param string                                                $SDKAppID
-     * @param string                                                $identifier
-     * @param \BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface $sig
-     * @param string                                                $baseUri
-     */
-    public function __construct(string $SDKAppID, string $identifier, TLSSigAPIInterface $sig, string $baseUri)
-    {
-        $this->SDKAppID = $SDKAppID;
-        $this->identifier = $identifier;
-        $this->userSig = $sig->genSig($this->identifier);
-        $this->baseUri = $baseUri;
-    }
+    protected $baseUri;
 
     /**
      * @return \GuzzleHttp\ClientInterface
@@ -144,24 +109,5 @@ class HttpClient
         return function ($numberOfRetries) {
             return 1000 * $numberOfRetries;
         };
-    }
-
-    /**
-     * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
-     *
-     * @return array
-     */
-    protected function options(BaseRequest $request)
-    {
-        return [
-            'query' => [
-                'identifier' => $this->identifier,
-                'sdkappid' => $this->SDKAppID,
-                'random' => uniqid(),
-                'contenttype' => 'json',
-                'usersig' => $this->userSig,
-            ],
-            'json' => $request->getParameters(),
-        ];
     }
 }
