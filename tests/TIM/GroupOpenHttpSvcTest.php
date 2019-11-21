@@ -286,12 +286,14 @@ class GroupOpenHttpSvcTest extends TestCase
             $nextMsgSeq = $callback->success($response);
 
             $requests = function ($msgSeq) use ($request, $msgNumber) {
-                $msgSeq -= $msgNumber;
-                yield function () use ($request, $msgSeq) {
-                    $request->setReqMsgSeq($msgSeq);
+                while ($msgSeq > 1) {
+                    $msgSeq -= $msgNumber;
+                    yield function () use ($request, $msgSeq) {
+                        $request->setReqMsgSeq($msgSeq - 1);
 
-                    return $this->getTIMClient()->sendRequest($request, true);
-                };
+                        return $this->getTIMClient()->sendRequest($request, true);
+                    };
+                }
             };
 
             $pool = new Pool($this->getTIMClient()->getClient()->getHttpClient(), $requests($nextMsgSeq), [
