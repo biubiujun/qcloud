@@ -9,6 +9,7 @@ use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
  *
  * @package BiuBiuJun\QCloud
  * @method  \BiuBiuJun\QCloud\TIM\TIM TIM($SDKAppID, $identifier, $privateKey, $publicKey, $sigVersion = 'TLSSigAPIv1')
+ * @method  \BiuBiuJun\QCloud\TIC\TIC TIC($SDKAppID, $privateKey, $publicKey, $TICKey, $expires = 86400, $sigVersion = 'TLSSigAPIv1')
  */
 class QCloud
 {

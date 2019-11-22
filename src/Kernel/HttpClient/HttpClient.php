@@ -57,6 +57,7 @@ abstract class HttpClient
     public function request(BaseRequest $request, BaseResponse $response): BaseResponse
     {
         $resp = $this->getHttpClient()->post($request->getUri(), $this->options($request));
+//        print_r($this->options($request));exit;
         $response->handle($resp);
 
         return $response;

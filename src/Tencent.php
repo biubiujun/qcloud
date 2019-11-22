@@ -12,9 +12,29 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 class Tencent
 {
     /**
+     * @var \BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface
+     */
+    protected $tlsSignature;
+
+    /**
      * @var \BiuBiuJun\QCloud\Kernel\HttpClient\TLSSigHttpClient
      */
     protected $client;
+
+    /**
+     * Tencent constructor.
+     *
+     * @param $SDKAppID
+     * @param $privateKey
+     * @param $publicKey
+     * @param $sigVersion
+     */
+    public function __construct($SDKAppID, $privateKey, $publicKey, $sigVersion)
+    {
+        $sigApplication = "BiuBiuJun\\QCloud\\Kernel\\$sigVersion";
+
+        $this->tlsSignature = new $sigApplication($SDKAppID, $privateKey, $publicKey);
+    }
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
@@ -38,6 +58,17 @@ class Tencent
         } else {
             return $this->client->requestAsync($request);
         }
+    }
+
+    /**
+     * @param string $identifier
+     * @param int    $ttl
+     *
+     * @return string
+     */
+    public function getUserSig(string $identifier, $ttl = 5184000)
+    {
+        return $this->tlsSignature->genSig($identifier, $ttl);
     }
 
     /**

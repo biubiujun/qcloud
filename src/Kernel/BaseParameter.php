@@ -12,11 +12,13 @@ abstract class BaseParameter
     protected $parameters;
 
     /**
+     * @param bool $filter
+     *
      * @return array
      */
-    public function getParameters()
+    public function getParameters($filter = true)
     {
-        return array_filter($this->parameters);
+        return true === $filter ? array_filter($this->parameters) : $this->parameters;
     }
 
     /**

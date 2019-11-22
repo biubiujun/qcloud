@@ -39,7 +39,7 @@ abstract class BaseResponse
         if ($response->getStatusCode() != 200) {
             throw new HttpException('Request failed: ' . $response->getBody()->getContents(), $response->getBody()->rewind(), $response->getStatusCode());
         }
-
+print_r($response->getBody()->getContents());exit;
         $content = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
         if (isset($content['ActionStatus']) && 'OK' == $content['ActionStatus']) {
             $this->isSuccessful = true;

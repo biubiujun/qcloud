@@ -18,11 +18,6 @@ class TIM extends Tencent
     protected $baseUri = 'https://console.tim.qq.com/';
 
     /**
-     * @var \BiuBiuJun\QCloud\Kernel\Contracts\TLSSigAPIInterface
-     */
-    protected $tlsSignature;
-
-    /**
      * @var \BiuBiuJun\QCloud\Kernel\WebRTCSigApi
      */
     protected $rtcSignature;
@@ -38,22 +33,10 @@ class TIM extends Tencent
      */
     public function __construct(string $SDKAppID, string $identifier, string $privateKey, string $publicKey, $sigVersion = 'TLSSigAPIv1')
     {
-        $sigApplication = "BiuBiuJun\\QCloud\\Kernel\\$sigVersion";
+        parent::__construct($SDKAppID, $privateKey, $publicKey, $sigVersion);
 
-        $this->tlsSignature = new $sigApplication($SDKAppID, $privateKey, $publicKey);
         $this->rtcSignature = new WebRTCSigApi($SDKAppID, $privateKey, $publicKey);
         $this->client = new TLSSigHttpClient($SDKAppID, $identifier, $this->tlsSignature, $this->baseUri);
-    }
-
-    /**
-     * @param string $identifier
-     * @param int    $ttl
-     *
-     * @return string
-     */
-    public function getUserSig(string $identifier, $ttl = 5184000)
-    {
-        return $this->tlsSignature->genSig($identifier, $ttl);
     }
 
     /**
