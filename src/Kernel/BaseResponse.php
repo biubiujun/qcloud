@@ -39,7 +39,7 @@ abstract class BaseResponse
         if ($response->getStatusCode() != 200) {
             throw new HttpException('Request failed: ' . $response->getBody()->getContents(), $response->getBody()->rewind(), $response->getStatusCode());
         }
-print_r($response->getBody()->getContents());exit;
+
         $content = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
         if (isset($content['ActionStatus']) && 'OK' == $content['ActionStatus']) {
             $this->isSuccessful = true;
@@ -56,6 +56,28 @@ print_r($response->getBody()->getContents());exit;
                     $this->content = $content;
                 }
             }
+        }
+    }
+
+    /**
+     * @param \Psr\Http\Message\ResponseInterface $response
+     *
+     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
+     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
+     */
+    public function handleTIC(ResponseInterface $response)
+    {
+        if ($response->getStatusCode() != 200) {
+            throw new HttpException('Request failed: ' . $response->getBody()->getContents(), $response->getBody()->rewind(), $response->getStatusCode());
+        }
+
+        $content = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
+        if (isset($content['error_code']) && 0 == $content['error_code']) {
+            $this->isSuccessful = true;
+            $this->content = $content;
+        } else {
+            $this->isSuccessful = false;
+            throw new BadRequestException($content['error_msg'] ?? '', $content['error_code']);
         }
     }
 

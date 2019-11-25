@@ -12,10 +12,10 @@ use BiuBiuJun\QCloud\Kernel\BaseResponse;
 class OnlineStartResponse extends BaseResponse
 {
     /**
-     * @return array
+     * @return string
      */
-    public function getMemberList()
+    public function getTaskId()
     {
-        return $this->content['MemberList'];
+        return $this->content['task_id'];
     }
 }

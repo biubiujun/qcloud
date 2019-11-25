@@ -3,6 +3,8 @@
 namespace BiuBiuJun\QCloud\Kernel\HttpClient;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
+use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class TLSSigHttpClient
@@ -61,5 +63,20 @@ class TICKeyHttpClient extends HttpClient
     {
         $this->expireTime = time() + $expires;
         $this->sign = md5($TICKey . $this->expireTime);
+    }
+
+    /**
+     * @param \BiuBiuJun\QCloud\Kernel\BaseResponse $response
+     * @param \Psr\Http\Message\ResponseInterface   $resp
+     *
+     * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
+     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
+     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
+     */
+    protected function handleRequest(BaseResponse $response, ResponseInterface $resp)
+    {
+        $response->handleTIC($resp);
+
+        return $response;
     }
 }

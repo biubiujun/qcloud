@@ -16,10 +16,10 @@ class RecordTest extends TestCase
 {
     public function testOnlineStart()
     {
-        $roomId = 1439117902;
+        $roomId = 1984027965;
         $userId = "tic_record_user_{$roomId}_01";
         $userSig = $this->getTICClient()->getUserSig($userId);
-        $request = new OnlineStartRequest(1439117902, $userId, $userSig);
+        $request = new OnlineStartRequest($roomId, $userId, $userSig);
 
         $concat = new Concat(true);
         $request->setConcat($concat);
@@ -77,18 +77,18 @@ class RecordTest extends TestCase
         $request->setExtra(['mix_stream']);
 
         $response = $this->getTICClient()->sendRequest($request);
-        print_r($response);
-        exit;
+
         $this->assertTrue($response->isSuccessful());
+
+        print_r($response->getTaskId());
     }
 
     public function testOnlineStop()
     {
-        $taskId = 'grr52ss6stgtvsc4rbnb';
+        $taskId = '0j462ss6stgtvsdmkdnb';
         $request = new OnlineStopRequest($taskId);
         $response = $this->getTICClient()->sendRequest($request);
-        print_r($response);
-        exit;
+
         $this->assertTrue($response->isSuccessful());
     }
 
@@ -97,8 +97,7 @@ class RecordTest extends TestCase
         $taskId = 'grr52ss6stgtvsc4rbnb';
         $request = new OnlineQueryRequest($taskId);
         $response = $this->getTICClient()->sendRequest($request);
-        print_r($response);
-        exit;
+
         $this->assertTrue($response->isSuccessful());
     }
 }

@@ -5,10 +5,10 @@ namespace BiuBiuJun\QCloud\TIC\Responses\Record;
 use BiuBiuJun\QCloud\Kernel\BaseResponse;
 
 /**
- * Class OnlineStopResponse
+ * Class OnlinePauseResponse
  *
  * @package BiuBiuJun\QCloud\TIC\Responses\Record
  */
-class OnlineStopResponse extends BaseResponse
+class OnlinePauseResponse extends BaseResponse
 {
 }
