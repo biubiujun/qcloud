@@ -284,7 +284,6 @@ class GroupOpenHttpSvcTest extends TestCase
 
         if ($response->isSuccessful()) {
             $nextMsgSeq = $callback->success($response);
-
             $requests = function ($msgSeq) use ($request, $msgNumber) {
                 while ($msgSeq > 1) {
                     $msgSeq -= $msgNumber;
