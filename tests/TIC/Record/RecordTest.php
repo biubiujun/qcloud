@@ -2,6 +2,8 @@
 
 namespace BiuBiuJun\Tests\TIM;
 
+use BiuBiuJun\QCloud\Kernel\TLSSigAPIv1;
+use BiuBiuJun\QCloud\TIC\Notifies\OnlineCallbackNotify;
 use BiuBiuJun\QCloud\TIC\Requests\Record\OnlineQueryRequest;
 use BiuBiuJun\QCloud\TIC\Requests\Record\OnlineStartRequest;
 use BiuBiuJun\QCloud\TIC\Requests\Record\OnlineStopRequest;
@@ -99,5 +101,15 @@ class RecordTest extends TestCase
         $response = $this->getTICClient()->sendRequest($request);
 
         $this->assertTrue($response->isSuccessful());
+    }
+
+    public function testVerifySig()
+    {
+        $this->getTICClient()->notify(OnlineCallbackNotify::class, function ($message, $fail) {
+            print_r($message);
+            exit;
+        });
+
+        echo 1;exit;
     }
 }

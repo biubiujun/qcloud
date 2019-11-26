@@ -4,6 +4,7 @@ namespace BiuBiuJun\QCloud\Kernel\HttpClient;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Kernel\TICSign;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -28,10 +29,11 @@ class TICKeyHttpClient extends HttpClient
      */
     protected $expireTime;
 
-    public function __construct(string $SDKAppID, string $TICKey, int $expires, string $baseUri)
+    public function __construct(string $SDKAppID, TICSign $ticSign, int $expires, string $baseUri)
     {
         $this->SDKAppID = $SDKAppID;
-        $this->setExpireTimeAndSign($TICKey, $expires);
+        $this->expireTime = time() + $expires;
+        $this->sign = $ticSign->sign($this->expireTime);
         $this->baseUri = $baseUri;
     }
 
@@ -51,18 +53,6 @@ class TICKeyHttpClient extends HttpClient
             ],
             'json' => $request->getParameters(),
         ];
-    }
-
-    /**
-     * @param string $TICKey
-     * @param int    $expires
-     *
-     * @return string
-     */
-    protected function setExpireTimeAndSign(string $TICKey, int $expires)
-    {
-        $this->expireTime = time() + $expires;
-        $this->sign = md5($TICKey . $this->expireTime);
     }
 
     /**

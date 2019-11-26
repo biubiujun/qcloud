@@ -17,7 +17,9 @@ class OnlineStartRequest extends BaseRequest
     /**
      * OnlineStartRequest constructor.
      *
-     * @param int $roomId
+     * @param int    $roomId
+     * @param string $userId
+     * @param string $userSig
      */
     public function __construct(int $roomId, string $userId, string $userSig)
     {
