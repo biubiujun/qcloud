@@ -10,7 +10,8 @@ class OnlineCallbackNotify extends BaseNotify
      * @param \Closure $closure
      *
      * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
     public function handle(Closure $closure)
     {
