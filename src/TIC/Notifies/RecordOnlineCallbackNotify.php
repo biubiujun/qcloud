@@ -4,7 +4,12 @@ namespace BiuBiuJun\QCloud\TIC\Notifies;
 
 use Closure;
 
-class OnlineCallbackNotify extends BaseNotify
+/**
+ * Class RecordOnlineCallbackNotify
+ *
+ * @package BiuBiuJun\QCloud\TIC\Notifies
+ */
+class RecordOnlineCallbackNotify extends BaseNotify
 {
     /**
      * @param \Closure $closure
