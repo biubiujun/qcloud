@@ -65,7 +65,7 @@ abstract class BaseResponse
      * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
      */
-    public function handleTIC(ResponseInterface $response)
+    public function handleTic(ResponseInterface $response)
     {
         if ($response->getStatusCode() != 200) {
             throw new HttpException('Request failed: ' . $response->getBody()->getContents(), $response->getBody()->rewind(), $response->getStatusCode());
