@@ -2,13 +2,13 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\Profile;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class PortraitSetResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\Profile
  */
-class PortraitSetResponse extends BaseResponse
+class PortraitSetResponse extends TimResponse
 {
 }

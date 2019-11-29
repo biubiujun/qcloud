@@ -2,13 +2,13 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class SetUnreadMsgNumResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\GroupOpenHttpSvc
  */
-class SetUnreadMsgNumResponse extends BaseResponse
+class SetUnreadMsgNumResponse extends TimResponse
 {
 }

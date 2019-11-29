@@ -2,8 +2,8 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
-class ModifyGroupBaseInfoResponse extends BaseResponse
+class ModifyGroupBaseInfoResponse extends TimResponse
 {
 }

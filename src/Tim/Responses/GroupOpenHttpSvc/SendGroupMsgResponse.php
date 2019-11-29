@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class SendGroupMsgResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\GroupOpenHttpSvc
  */
-class SendGroupMsgResponse extends BaseResponse
+class SendGroupMsgResponse extends TimResponse
 {
     /**
      * @return int

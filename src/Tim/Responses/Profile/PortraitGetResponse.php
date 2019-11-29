@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\Profile;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class PortraitGetResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\Profile
  */
-class PortraitGetResponse extends BaseResponse
+class PortraitGetResponse extends TimResponse
 {
     /**
      * @return array

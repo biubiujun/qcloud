@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\OpenMsgSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class GetHistoryResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\OpenMsgSvc
  */
-class GetHistoryResponse extends BaseResponse
+class GetHistoryResponse extends TimResponse
 {
     /**
      * @return array

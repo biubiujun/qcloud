@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tic\Responses\Record;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tic\Responses\TicResponse;
 
 /**
  * Class OnlineQueryResponse
  *
  * @package BiuBiuJun\QCloud\TicClient\Responses\Record
  */
-class OnlineQueryResponse extends BaseResponse
+class OnlineQueryResponse extends TicResponse
 {
     /**
      * @return string

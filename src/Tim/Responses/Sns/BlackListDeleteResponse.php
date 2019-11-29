@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\Sns;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class BlackListDeleteResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\Sns
  */
-class BlackListDeleteResponse extends BaseResponse
+class BlackListDeleteResponse extends TimResponse
 {
     /**
      * @return array

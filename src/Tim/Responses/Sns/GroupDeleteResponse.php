@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\Sns;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class GroupDeleteResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\Sns
  */
-class GroupDeleteResponse extends BaseResponse
+class GroupDeleteResponse extends TimResponse
 {
     /**
      * @return int

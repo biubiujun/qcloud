@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tic\Responses\Transcode;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tic\Responses\TicResponse;
 
 /**
  * Class TranscodeCreateResponse
  *
  * @package BiuBiuJun\QCloud\TicClient\Responses\Transcode
  */
-class TranscodeCreateResponse extends BaseResponse
+class TranscodeCreateResponse extends TicResponse
 {
     /**
      * @return string

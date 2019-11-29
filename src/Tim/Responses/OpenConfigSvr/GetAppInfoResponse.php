@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\OpenConfigSvr;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class GetAppInfoResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\OpenConfigSvr
  */
-class GetAppInfoResponse extends BaseResponse
+class GetAppInfoResponse extends TimResponse
 {
     /**
      * @var bool

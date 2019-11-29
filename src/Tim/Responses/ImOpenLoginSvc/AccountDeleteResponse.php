@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\ImOpenLoginSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class AccountDeleteResponse
  *
  * @package BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc
  */
-class AccountDeleteResponse extends BaseResponse
+class AccountDeleteResponse extends TimResponse
 {
     /**
      * @return array

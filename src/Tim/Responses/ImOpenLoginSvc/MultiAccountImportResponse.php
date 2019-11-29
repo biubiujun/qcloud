@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\ImOpenLoginSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class MultiAccountImportResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\ImOpenLoginSvc
  */
-class MultiAccountImportResponse extends BaseResponse
+class MultiAccountImportResponse extends TimResponse
 {
     /**
      * @return array

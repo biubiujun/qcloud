@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\Sns;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class FriendDeleteResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\Sns
  */
-class FriendDeleteResponse extends BaseResponse
+class FriendDeleteResponse extends TimResponse
 {
     /**
      * @return array

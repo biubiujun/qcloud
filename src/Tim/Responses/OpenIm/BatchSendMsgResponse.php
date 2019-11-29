@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\OpenIm;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class BatchSendMsgResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\OpenIm
  */
-class BatchSendMsgResponse extends BaseResponse
+class BatchSendMsgResponse extends TimResponse
 {
     /**
      * @return array

@@ -2,9 +2,9 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
-class GetJoinedGroupListResponse extends BaseResponse
+class GetJoinedGroupListResponse extends TimResponse
 {
     /**
      * @return int

@@ -2,14 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Tim\Responses\OpenConfigSvr;
 
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
+use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
 /**
  * Class SetNoSpeakingResponse
  *
  * @package BiuBiuJun\QCloud\TimClient\Responses\OpenConfigSvr
  */
-class SetNoSpeakingResponse extends BaseResponse
+class SetNoSpeakingResponse extends TimResponse
 {
     /**
      * @var bool
