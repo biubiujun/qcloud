@@ -69,7 +69,7 @@ class TicClient extends AbstractClient
         if (!class_exists($notifyClass)) {
             throw new InvalidArgumentException("Notify Class {$notifyClass} not exist.");
         }
-        $notify = new $notifyClass($this->ticSign);
+        $notify = new $notifyClass($this->$this->getTicSign());
 
         return $notify->handle($closure);
     }
