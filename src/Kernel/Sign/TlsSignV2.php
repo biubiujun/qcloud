@@ -55,15 +55,15 @@ class TlsSignV2 implements TlsSignInterface
         }
 
         $params['TLS.sig'] = $this->hmacsha256($identifier, $curTime, $expire, $base64UserBuf);
-        if ($params['TLS.sig'] === false) {
+        if (false == $params['TLS.sig']) {
             throw new InvalidSignException('base64_encode error');
         }
         $json = json_encode($params);
-        if ($json === false) {
+        if (false === $json) {
             throw new InvalidSignException('json_encode error');
         }
         $compressed = gzcompress($json);
-        if ($compressed === false) {
+        if (false === $compressed) {
             throw new InvalidSignException('gzcompress error');
         }
 
@@ -74,7 +74,7 @@ class TlsSignV2 implements TlsSignInterface
     {
         try {
             $uncompressedSign = $this->base64Decode($sign);
-            if (false === $uncompressedSign) {
+            if (false == $uncompressedSign) {
                 throw new InvalidSignException('gzuncompress error');
             }
             $params = json_decode($uncompressedSign, true);
@@ -102,7 +102,7 @@ class TlsSignV2 implements TlsSignInterface
             ];
 
             $base64UserBuf = '';
-            if (isset($sigDoc['TLS.userbuf'])) {
+            if (isset($params['TLS.userbuf'])) {
                 $base64UserBuf = $params['TLS.userbuf'];
                 $this->verifyResult['userbuf'] = base64_decode($base64UserBuf);
             }

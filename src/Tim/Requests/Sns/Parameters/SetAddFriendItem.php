@@ -28,12 +28,14 @@ trait SetAddFriendItem
     }
 
     /**
+     * @param bool $filter
+     *
      * @return array
      */
-    public function getParameters()
+    public function getParameters($filter = true)
     {
         $this->setParameter('AddFriendItem', $this->addFriendItem);
 
-        return parent::getParameters();
+        return parent::getParameters($filter);
     }
 }

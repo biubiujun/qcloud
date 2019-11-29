@@ -3,6 +3,7 @@
 namespace BiuBiuJun\QCloud\Kernel;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
+use BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface;
 use BiuBiuJun\QCloud\Kernel\HttpClient\SendRequest;
 use BiuBiuJun\QCloud\Kernel\Sign\TcSign;
 use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
@@ -58,11 +59,6 @@ abstract class AbstractClient
     protected $secretKey;
 
     /**
-     * @var string
-     */
-    protected $signVersion;
-
-    /**
      * @var \BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface
      */
     protected $tlsSign = null;
@@ -88,7 +84,7 @@ abstract class AbstractClient
      */
     public function getTlsSign()
     {
-        if (is_null($this->tlsSign)) {
+        if (!$this->tlsSign instanceof TlsSignInterface) {
             if (empty($this->sdkAppId)) {
                 throw new InvalidArgumentException('sdkAppId is empty.');
             }
@@ -116,7 +112,7 @@ abstract class AbstractClient
      */
     public function getTicSign()
     {
-        if (is_null($this->ticSign)) {
+        if (!$this->ticSign instanceof TicSign) {
             if (empty($this->sdkAppId)) {
                 throw new InvalidArgumentException('sdkAppId is empty.');
             }
@@ -133,7 +129,7 @@ abstract class AbstractClient
      */
     public function getTcSign()
     {
-        if (is_null($this->tcSign)) {
+        if (!$this->tcSign instanceof TcSign) {
             if (empty($this->secretId)) {
                 throw new InvalidArgumentException('secretId is empty.');
             }

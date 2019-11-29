@@ -48,7 +48,7 @@ class TicClient extends AbstractClient
      */
     public function getClient()
     {
-        if (is_null($this->client)) {
+        if (!$this->client instanceof TicKeyHttpClient) {
             $this->client = new TicKeyHttpClient($this->sdkAppId, $this->getTicSign(), $this->expires, $this->baseUri);
         }
 

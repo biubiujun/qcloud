@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Kernel;
+namespace BiuBiuJun\QCloud\Kernel\Sign;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidConfigException;
 

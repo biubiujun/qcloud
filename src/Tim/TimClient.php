@@ -41,7 +41,7 @@ class TimClient extends AbstractClient
      */
     public function getClient()
     {
-        if (is_null($this->client)) {
+        if (!$this->client instanceof TlsSigHttpClient) {
             $this->client = new TlsSigHttpClient($this->sdkAppId, $this->identifier, $this->getTlsSign(), $this->baseUri);
         }
 

@@ -67,12 +67,14 @@ class MemberItem extends BaseParameter
     }
 
     /**
+     * @param bool $filter
+     *
      * @return array
      */
-    public function getParameters()
+    public function getParameters($filter = true)
     {
         $this->setParameter('AppMemberDefinedData', $this->appMemberDefinedData);
 
-        return parent::getParameters();
+        return parent::getParameters($filter);
     }
 }

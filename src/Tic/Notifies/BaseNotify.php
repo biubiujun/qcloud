@@ -4,7 +4,7 @@ namespace BiuBiuJun\QCloud\Tic\Notifies;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
 use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
-use BiuBiuJun\QCloud\Kernel\TICSign;
+use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
 use Closure;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +16,9 @@ abstract class BaseNotify
     const FAIL = -1;
 
     /**
-     * @var \BiuBiuJun\QCloud\Kernel\TICSign
+     * @var \BiuBiuJun\QCloud\Kernel\Sign\TicSign
      */
-    protected $TICSign;
+    protected $TicSign;
 
     /**
      * @var int
@@ -30,9 +30,9 @@ abstract class BaseNotify
      */
     protected $message;
 
-    public function __construct(TICSign $TICSign)
+    public function __construct(TicSign $TicSign)
     {
-        $this->TICSign = $TICSign;
+        $this->TicSign = $TicSign;
         $this->errorCode = static::SUCCESS;
     }
 
@@ -89,7 +89,7 @@ abstract class BaseNotify
      */
     protected function validate(array $message)
     {
-        if (!$this->TICSign->validate($message['sign'], $message['expire_time'])) {
+        if (!$this->TicSign->verify($message['sign'], $message['expire_time'])) {
             throw new InvalidSignException();
         }
     }
@@ -99,7 +99,7 @@ abstract class BaseNotify
      */
     protected function strict($result)
     {
-        if (true !== $result && is_null($this->errorCode)) {
+        if (true !== $result && empty($this->errorCode)) {
             $this->fail();
         }
     }

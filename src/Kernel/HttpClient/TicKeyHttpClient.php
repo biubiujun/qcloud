@@ -3,9 +3,7 @@
 namespace BiuBiuJun\QCloud\Kernel\HttpClient;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
-use BiuBiuJun\QCloud\Kernel\BaseResponse;
 use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class TlsSigHttpClient
@@ -61,20 +59,5 @@ class TicKeyHttpClient extends HttpClient
             ],
             'json' => $request->getParameters(),
         ];
-    }
-
-    /**
-     * @param \BiuBiuJun\QCloud\Kernel\BaseResponse $response
-     * @param \Psr\Http\Message\ResponseInterface   $resp
-     *
-     * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
-     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
-     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
-     */
-    protected function handleRequest(BaseResponse $response, ResponseInterface $resp)
-    {
-        $response->handleTic($resp);
-
-        return $response;
     }
 }

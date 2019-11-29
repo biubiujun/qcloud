@@ -13,7 +13,6 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
 
 abstract class HttpClient
 {
@@ -54,24 +53,12 @@ abstract class HttpClient
      * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
      * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function request(BaseRequest $request, BaseResponse $response): BaseResponse
     {
-        $resp = $this->getHttpClient()->post($request->getUri(), $this->options($request));
+        $resp = $this->getHttpClient()->request('POST', $request->getUri(), $this->options($request));
 
-        return $this->handleRequest($response, $resp);
-    }
-
-    /**
-     * @param \BiuBiuJun\QCloud\Kernel\BaseResponse $response
-     * @param \Psr\Http\Message\ResponseInterface   $resp
-     *
-     * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
-     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
-     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
-     */
-    protected function handleRequest(BaseResponse $response, ResponseInterface $resp)
-    {
         $response->handle($resp);
 
         return $response;
@@ -84,8 +71,15 @@ abstract class HttpClient
      */
     public function requestAsync(BaseRequest $request)
     {
-        return $this->getHttpClient()->postAsync($request->getUri(), $this->options($request));
+        return $this->getHttpClient()->requestAsync('POST', $request->getUri(), $this->options($request));
     }
+
+    /**
+     * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     *
+     * @return array
+     */
+    abstract protected function options(BaseRequest $request);
 
     /**
      * @return \Closure

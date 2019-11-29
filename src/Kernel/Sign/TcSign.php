@@ -133,11 +133,11 @@ class TcSign
     }
 
     /**
-     * @param $headers
+     * @param array $headers
      *
      * @return array
      */
-    protected function buildHeaderString($headers)
+    protected function buildHeaderString(array $headers)
     {
         ksort($headers);
         $canonicalHeaders = '';

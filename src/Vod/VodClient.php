@@ -35,7 +35,7 @@ class VodClient extends AbstractClient
      */
     public function getClient()
     {
-        if (is_null($this->client)) {
+        if (!$this->client instanceof TcHttpClient) {
             $this->client = new TcHttpClient($this->getTcSign(), $this->baseUri);
         }
 

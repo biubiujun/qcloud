@@ -12,7 +12,7 @@ use BiuBiuJun\QCloud\Kernel\Contracts\RequestInterface;
 abstract class BaseRequest implements RequestInterface
 {
     /**
-     * @var
+     * @var array
      */
     protected $parameters;
 

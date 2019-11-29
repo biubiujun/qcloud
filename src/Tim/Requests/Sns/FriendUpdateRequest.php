@@ -68,12 +68,14 @@ class FriendUpdateRequest extends BaseRequest
     }
 
     /**
+     * @param bool $filter
+     *
      * @return array
      */
-    public function getParameters()
+    public function getParameters($filter = true)
     {
         $this->setParameter('UpdateItem', $this->updateItem);
 
-        return parent::getParameters();
+        return parent::getParameters($filter);
     }
 }

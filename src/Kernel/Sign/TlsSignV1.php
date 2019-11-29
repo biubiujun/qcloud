@@ -4,7 +4,6 @@ namespace BiuBiuJun\QCloud\Kernel\Sign;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
 use BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface;
-use BiuBiuJun\QCloud\Kernel\TlsSignKey;
 
 /**
  * Class TlsSignV1
@@ -71,15 +70,15 @@ class TlsSignV1 implements TlsSignInterface
         }
         $signString = $this->buildSignString($params, !empty($userBuf));
         $params['TLS.sig'] = $this->makeSign($signString);
-        if (false === $params['TLS.sig']) {
+        if (false == $params['TLS.sig']) {
             throw new InvalidSignException('base64_encode error');
         }
         $json = json_encode($params);
-        if (false === $json) {
+        if (false == $json) {
             throw new InvalidSignException('json_encode error');
         }
         $compressed = gzcompress($json);
-        if (false === $compressed) {
+        if (false == $compressed) {
             throw new InvalidSignException('gzcompress error');
         }
 

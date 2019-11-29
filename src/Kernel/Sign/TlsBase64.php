@@ -16,7 +16,7 @@ trait TlsBase64
     {
         $replace = ['+' => '*', '/' => '-', '=' => '_'];
         $base64 = base64_encode($string);
-        if (false === $base64) {
+        if (false == $base64) {
             throw new InvalidSignException('base64_encode error');
         }
 
