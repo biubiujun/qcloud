@@ -153,10 +153,11 @@ abstract class AbstractClient
      * @param int    $ttl
      *
      * @return string
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
      */
     public function genUserSign(string $identifier, $ttl = 5184000)
     {
-        return $this->tlsSign->sign($identifier, $ttl);
+        return $this->getTlsSign()->sign($identifier, $ttl);
     }
 
     /**

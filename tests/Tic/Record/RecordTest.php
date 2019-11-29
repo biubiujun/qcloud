@@ -19,7 +19,7 @@ class RecordTest extends TestCase
     {
         $roomId = 1984027965;
         $userId = "tic_record_user_{$roomId}_01";
-        $userSig = $this->getTicClient()->getUserSig($userId);
+        $userSig = $this->getTicClient()->genUserSign($userId);
         $request = new OnlineStartRequest($roomId, $userId, $userSig);
 
         $concat = new Concat(true);

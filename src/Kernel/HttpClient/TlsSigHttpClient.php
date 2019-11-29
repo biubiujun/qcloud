@@ -25,7 +25,7 @@ class TlsSigHttpClient extends HttpClient
     /**
      * @var string
      */
-    protected $userSig;
+    protected $userSign;
 
     /**
      * TlsSigHttpClient constructor.
@@ -39,7 +39,7 @@ class TlsSigHttpClient extends HttpClient
     {
         $this->SDKAppID = $SDKAppID;
         $this->identifier = $identifier;
-        $this->userSig = $tlsSign->sign($this->identifier);
+        $this->userSign = $tlsSign->sign($this->identifier);
         $this->baseUri = $baseUri;
     }
 
@@ -56,7 +56,7 @@ class TlsSigHttpClient extends HttpClient
                 'sdkappid' => $this->SDKAppID,
                 'random' => uniqid(),
                 'contenttype' => 'json',
-                'usersig' => $this->userSig,
+                'usersig' => $this->userSign,
             ],
             'json' => $request->getParameters(),
         ];

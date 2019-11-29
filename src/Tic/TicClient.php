@@ -32,14 +32,16 @@ class TicClient extends AbstractClient
      * @param string $publicKey
      * @param string $ticKey
      * @param int    $expires
+     * @param string $sigVersion
      */
-    public function __construct(string $sdkAppId, string $privateKey, string $publicKey, string $ticKey, int $expires = 86400)
+    public function __construct(string $sdkAppId, string $privateKey, string $publicKey, string $ticKey, int $expires = 86400, $sigVersion = 'V1')
     {
         $this->sdkAppId = $sdkAppId;
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
         $this->ticKey = $ticKey;
         $this->expires = $expires;
+        $this->sigVersion = $sigVersion;
     }
 
     /**

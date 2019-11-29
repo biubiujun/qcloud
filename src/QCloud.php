@@ -8,8 +8,8 @@ use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
  * Class QCloud
  *
  * @package BiuBiuJun\QCloud
- * @method  \BiuBiuJun\QCloud\Tim\TimClient Tim($SDKAppID, $identifier, $privateKey, $publicKey, $sigVersion = 'TLSSigAPIv1Api')
- * @method  \BiuBiuJun\QCloud\Tic\TicClient Tic($SDKAppID, $privateKey, $publicKey, $TICKey, $expires = 86400, $sigVersion = 'TLSSigAPIv1Api')
+ * @method  \BiuBiuJun\QCloud\Tim\TimClient Tim(string $sdkAppId, string $identifier, string $privateKey, string $publicKey, $sigVersion = 'V1')
+ * @method  \BiuBiuJun\QCloud\Tic\TicClient Tic($SDKAppID, $privateKey, $publicKey, $TICKey, $expires = 86400,  $sigVersion = 'V1')
  * @method  \BiuBiuJun\QCloud\Vod\VodClient Vod(string $secretId, string $secretKey)
  */
 class QCloud
