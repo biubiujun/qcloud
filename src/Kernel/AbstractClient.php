@@ -154,7 +154,7 @@ abstract class AbstractClient
      *
      * @return string
      */
-    public function getUserSig(string $identifier, $ttl = 5184000)
+    public function genUserSign(string $identifier, $ttl = 5184000)
     {
         return $this->tlsSign->sign($identifier, $ttl);
     }
@@ -164,11 +164,12 @@ abstract class AbstractClient
      * @param string $roomId
      * @param int    $expire
      *
+     * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
-    public function signPrivateMapKey(string $userId, string $roomId, int $expire = 300)
+    public function genPrivateMapKey(string $userId, string $roomId, int $expire = 300)
     {
         //视频校验位需要用到的字段
         /*
@@ -195,6 +196,6 @@ abstract class AbstractClient
             $tlsSign = new TlsSignV1($this->sdkAppId, $this->privateKey, $this->publicKey);
         }
 
-        $tlsSign->sign($userId, $expire, $userBuf);
+        return $tlsSign->sign($userId, $expire, $userBuf);
     }
 }
