@@ -2,8 +2,6 @@
 
 namespace BiuBiuJun\QCloud\Kernel;
 
-use BiuBiuJun\QCloud\Exceptions\BadRequestException;
-use BiuBiuJun\QCloud\Exceptions\HttpException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
