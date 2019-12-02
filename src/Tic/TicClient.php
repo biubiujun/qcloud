@@ -63,6 +63,7 @@ class TicClient extends AbstractClient
      *
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
+     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
     public function notify(string $notifyClass, Closure $closure)
     {
