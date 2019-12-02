@@ -71,25 +71,26 @@ abstract class BaseNotify
             return $this->message;
         }
 
-        $message = json_decode(Request::createFromGlobals()->getContent(), true);
+        $request = Request::createFromGlobals();
+        $message = json_decode($request->getContent(), true);
 
         if (!is_array($message) || empty($message)) {
             throw new InvalidArgumentException('Invalid request JSON.', 400);
         }
 
-        $this->validate($message);
+        $this->validate($request);
 
         return $this->message = $message;
     }
 
     /**
-     * @param array $message
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
-    protected function validate(array $message)
+    protected function validate(Request $request)
     {
-        if (!$this->TicSign->verify($message['sign'], $message['expire_time'])) {
+        if (!$this->TicSign->verify($request->get('sign'), $request->get('expire_time'))) {
             throw new InvalidSignException();
         }
     }
