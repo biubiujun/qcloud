@@ -19,6 +19,7 @@ trait SendRequest
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      * @param bool                                 $isAsync
      *
      * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
@@ -26,7 +27,7 @@ trait SendRequest
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
      */
-    public function sendRequest(BaseRequest $request, $isAsync = false)
+    public function sendRequest(BaseRequest $request, array $options = [], $isAsync = false)
     {
         $responseApplication = str_replace('Request', 'Response', get_class($request));
         if (!class_exists($responseApplication)) {
@@ -35,9 +36,9 @@ trait SendRequest
         $response = new $responseApplication();
 
         if (false === $isAsync) {
-            return $this->getClient()->request($request, $response);
+            return $this->getClient()->request($request, $response, $options);
         } else {
-            return $this->getClient()->requestAsync($request);
+            return $this->getClient()->requestAsync($request, $options);
         }
     }
 }

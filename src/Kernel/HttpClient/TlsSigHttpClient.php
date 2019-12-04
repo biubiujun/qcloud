@@ -45,12 +45,13 @@ class TlsSigHttpClient extends HttpClient
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      *
      * @return array
      */
-    protected function options(BaseRequest $request)
+    protected function options(BaseRequest $request, array $options = [])
     {
-        return [
+        $result = array_filter([
             'query' => [
                 'identifier' => $this->identifier,
                 'sdkappid' => $this->SDKAppID,
@@ -59,6 +60,12 @@ class TlsSigHttpClient extends HttpClient
                 'usersig' => $this->userSign,
             ],
             'json' => $request->getParameters(),
-        ];
+        ]);
+
+        if ($options) {
+            array_push($result, $options);
+        }
+
+        return $result;
     }
 }

@@ -21,8 +21,11 @@ class UploadTest extends TestCase
     public function testPullEvents()
     {
         $request = new PullEventsRequest();
-        $response = $this->getVodClient()->sendRequest($request);
+        $response = $this->getVodClient()->sendRequest($request, [
+            'timeout' => 10,
+        ]);
 
-        print_r($response->getContent());exit;
+        print_r($response->getContent());
+        exit;
     }
 }

@@ -49,15 +49,16 @@ abstract class HttpClient
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest  $request
      * @param \BiuBiuJun\QCloud\Kernel\BaseResponse $response
+     * @param array                                 $options
      *
      * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
      * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function request(BaseRequest $request, BaseResponse $response): BaseResponse
+    public function request(BaseRequest $request, BaseResponse $response, array $options = []): BaseResponse
     {
-        $resp = $this->getHttpClient()->request('POST', $request->getUri(), $this->options($request));
+        $resp = $this->getHttpClient()->request('POST', $request->getUri(), $this->options($request, $options));
 
         $response->handle($resp);
 
@@ -66,20 +67,22 @@ abstract class HttpClient
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      *
-     * @return mixed
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestAsync(BaseRequest $request)
+    public function requestAsync(BaseRequest $request, array $options = [])
     {
-        return $this->getHttpClient()->requestAsync('POST', $request->getUri(), $this->options($request));
+        return $this->getHttpClient()->requestAsync('POST', $request->getUri(), $this->options($request, $options));
     }
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      *
      * @return array
      */
-    abstract protected function options(BaseRequest $request);
+    abstract protected function options(BaseRequest $request, array $options = []);
 
     /**
      * @return \Closure

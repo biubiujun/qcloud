@@ -45,12 +45,13 @@ class TicKeyHttpClient extends HttpClient
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      *
      * @return array
      */
-    protected function options(BaseRequest $request)
+    protected function options(BaseRequest $request, array $options = [])
     {
-        return [
+        $result = array_filter([
             'query' => [
                 'sdkappid' => $this->SDKAppID,
                 'sign' => $this->sign,
@@ -58,6 +59,12 @@ class TicKeyHttpClient extends HttpClient
                 'random' => uniqid(),
             ],
             'json' => $request->getParameters(),
-        ];
+        ]);
+
+        if ($options) {
+            array_push($result, $options);
+        }
+
+        return $result;
     }
 }

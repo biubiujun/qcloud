@@ -31,10 +31,11 @@ class TcHttpClient extends HttpClient
 
     /**
      * @param \BiuBiuJun\QCloud\Kernel\BaseRequest $request
+     * @param array                                $options
      *
      * @return array
      */
-    protected function options(BaseRequest $request)
+    protected function options(BaseRequest $request, array $options = [])
     {
         $parameters = $request->getParameters();
 
@@ -49,9 +50,15 @@ class TcHttpClient extends HttpClient
             $headers['X-TC-Region'] = $region;
         }
 
-        return array_filter([
+        $result = array_filter([
             'headers' => $headers,
             'json' => $request->getParameters(),
         ]);
+
+        if ($options) {
+            array_push($result, $options);
+        }
+
+        return $result;
     }
 }
