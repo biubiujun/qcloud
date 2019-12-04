@@ -2,12 +2,24 @@
 
 namespace BiuBiuJun\QCloud\Vod\Responses;
 
+use BiuBiuJun\QCloud\Exceptions\BadRequestException;
 use BiuBiuJun\QCloud\Exceptions\HttpException;
 use BiuBiuJun\QCloud\Kernel\BaseResponse;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class VodResponse
+ *
+ * @package BiuBiuJun\QCloud\Vod\Responses
+ */
 abstract class VodResponse extends BaseResponse
 {
+    /**
+     * @param \Psr\Http\Message\ResponseInterface $response
+     *
+     * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
+     * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
+     */
     public function handle(ResponseInterface $response)
     {
         if ($response->getStatusCode() != 200) {
@@ -15,7 +27,11 @@ abstract class VodResponse extends BaseResponse
         }
 
         $content = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
-        $this->isSuccessful = true;
-        $this->content = $content;
+        if (isset($content['Response']) && !isset($content['Response']['Error'])) {
+            $this->isSuccessful = true;
+            $this->content = $content['Response'];
+        } else {
+            throw new BadRequestException($content['Response']['Error']['Message'], $content['Response']['Error']['Code']);
+        }
     }
 }
