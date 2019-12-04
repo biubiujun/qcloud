@@ -14,7 +14,7 @@ abstract class BaseRequest implements RequestInterface
     /**
      * @var array
      */
-    protected $parameters;
+    protected $parameters = [];
 
     /**
      * @param bool $filter
@@ -23,7 +23,7 @@ abstract class BaseRequest implements RequestInterface
      */
     public function getParameters($filter = true)
     {
-        return true === $filter ? array_filter($this->parameters) : $this->parameters;
+        return (true === $filter && $this->parameters) ? array_filter($this->parameters) : $this->parameters;
     }
 
     /**

@@ -12,7 +12,7 @@ class ImageItem
     /**
      * @var array
      */
-    protected $parameters;
+    protected $parameters = [];
 
     /**
      * ImageItem constructor.

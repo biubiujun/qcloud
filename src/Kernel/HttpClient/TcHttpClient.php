@@ -49,9 +49,9 @@ class TcHttpClient extends HttpClient
             $headers['X-TC-Region'] = $region;
         }
 
-        return [
+        return array_filter([
             'headers' => $headers,
             'json' => $request->getParameters(),
-        ];
+        ]);
     }
 }

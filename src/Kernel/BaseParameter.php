@@ -9,7 +9,7 @@ namespace BiuBiuJun\QCloud\Kernel;
  */
 abstract class BaseParameter
 {
-    protected $parameters;
+    protected $parameters = [];
 
     /**
      * @param bool $filter
@@ -18,7 +18,7 @@ abstract class BaseParameter
      */
     public function getParameters($filter = true)
     {
-        return true === $filter ? array_filter($this->parameters) : $this->parameters;
+        return (true === $filter && $this->parameters) ? array_filter($this->parameters) : $this->parameters;
     }
 
     /**

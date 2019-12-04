@@ -2,6 +2,7 @@
 
 namespace BiuBiuJun\Tests\Vod;
 
+use BiuBiuJun\QCloud\Vod\Requests\PullEventsRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullUploadRequest;
 use BiuBiuJun\Tests\TestCase;
 
@@ -15,5 +16,13 @@ class UploadTest extends TestCase
         $response = $this->getVodClient()->sendRequest($request);
 
         print_r($response);
+    }
+
+    public function testPullEvents()
+    {
+        $request = new PullEventsRequest();
+        $response = $this->getVodClient()->sendRequest($request);
+
+        print_r($response->getContent());exit;
     }
 }

@@ -126,7 +126,7 @@ class TcSign
                 http_build_query($query),
                 $canonicalHeaders,
                 $signedHeaders,
-                hash('sha256', json_encode($body)),
+                hash('sha256', $body ? json_encode($body) : ''),
             ]),
             $signedHeaders,
         ];
