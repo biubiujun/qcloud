@@ -31,7 +31,7 @@ abstract class VodResponse extends BaseResponse
             $this->isSuccessful = true;
             $this->content = $content['Response'];
         } else {
-            throw new BadRequestException($content['Response']['Error']['Message'], $content['Response']['Error']['Code']);
+            throw new BadRequestException(json_encode($content['Response']['Error']));
         }
     }
 }
