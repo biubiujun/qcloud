@@ -13,7 +13,7 @@ $ composer require biubiujun/qcloud
 
 ```php
 $qCloud = new QCloud();
-$TIM = $qCloud->TIM(
+$timClient = $qCloud->tim(
     'SDK_APP_ID',
     'IDENTIFIER',
     'PRIVATE_KEY',
@@ -22,6 +22,6 @@ $TIM = $qCloud->TIM(
 );
 
 $request = new AccountImportRequest('identifier', 'nickname');
-$response = $TIM->sendRequest($request);
+$response = $timClient->sendRequest($request);
 $response->isSuccessful(); // true
 ```
