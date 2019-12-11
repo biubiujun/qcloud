@@ -2,6 +2,7 @@
 
 namespace BiuBiuJun\Tests\Vod;
 
+use BiuBiuJun\QCloud\Vod\Requests\ConfirmEventsRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullEventsRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullUploadRequest;
 use BiuBiuJun\Tests\TestCase;
@@ -15,7 +16,8 @@ class UploadTest extends TestCase
         $request = new PullUploadRequest($fileUrl);
         $response = $this->getVodClient()->sendRequest($request);
 
-        print_r($response);
+//        var_dump($response);
+        $this->assertTrue($response->isSuccessful());
     }
 
     public function testPullEvents()
@@ -25,7 +27,19 @@ class UploadTest extends TestCase
             'timeout' => 10,
         ]);
 
-        print_r($response->getContent());
-        exit;
+//        var_dump($response->getContent());
+        $this->assertTrue($response->isSuccessful());
+    }
+
+    public function testConfirmEvents()
+    {
+        $request = new ConfirmEventsRequest([
+            '8077366951669081316',
+        ]);
+        $response = $this->getVodClient()->sendRequest($request);
+
+//        var_dump($response->getContent());
+//        exit;
+        $this->assertTrue($response->isSuccessful());
     }
 }
