@@ -290,7 +290,7 @@ class GroupOpenHttpSvcTest extends TestCase
                     yield function () use ($request, $msgSeq) {
                         $request->setReqMsgSeq($msgSeq - 1);
 
-                        return $this->getTimClient()->sendRequest($request, true);
+                        return $this->getTimClient()->sendRequest($request, [], true);
                     };
                 }
             };
