@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class GetHistoryResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenMsgSvc
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenMsgSvc
  */
 class GetHistoryResponse extends TimResponse
 {

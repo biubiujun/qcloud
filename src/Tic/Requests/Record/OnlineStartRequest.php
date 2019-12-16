@@ -10,7 +10,7 @@ use BiuBiuJun\QCloud\Tic\Requests\Record\Parameters\Whiteboard;
 /**
  * Class OnlineStartRequest
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record
  */
 class OnlineStartRequest extends BaseRequest
 {

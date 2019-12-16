@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class FriendGetListRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Sns
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns
  */
 class FriendGetListRequest extends BaseRequest
 {

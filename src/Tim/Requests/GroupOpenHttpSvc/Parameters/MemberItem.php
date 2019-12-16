@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
 /**
  * Class MemberItem
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\GroupOpenHttpSvc\Parameters
+ * @package BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc\Parameters
  */
 class MemberItem extends BaseParameter
 {

@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class AccountImportResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\ImOpenLoginSvc
+ * @package BiuBiuJun\QCloud\Tim\Responses\ImOpenLoginSvc
  */
 class AccountImportResponse extends TimResponse
 {

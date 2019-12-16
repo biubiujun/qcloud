@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface;
 /**
  * Class TlsSigHttpClient
  *
- * @package BiuBiuJun\QCloud\TimClient
+ * @package BiuBiuJun\QCloud\Kernel\HttpClient
  */
 class TlsSigHttpClient extends HttpClient
 {

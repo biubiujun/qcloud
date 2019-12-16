@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class OfflineQueryRequest
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record
  */
 class OfflineQueryRequest extends BaseRequest
 {

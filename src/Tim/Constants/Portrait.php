@@ -3,9 +3,9 @@
 namespace BiuBiuJun\QCloud\Tim\Constants;
 
 /**
- * Class PortraitField
+ * Class Portrait
  *
- * @package BiuBiuJun\QCloud\TimClient\Constants
+ * @package BiuBiuJun\QCloud\Tim\Constants
  */
 class Portrait
 {

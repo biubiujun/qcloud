@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class BlackListCheckRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Sns
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns
  */
 class BlackListCheckRequest extends BaseRequest
 {

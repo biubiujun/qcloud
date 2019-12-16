@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class FriendDeleteRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Sns
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns
  */
 class FriendDeleteRequest extends BaseRequest
 {

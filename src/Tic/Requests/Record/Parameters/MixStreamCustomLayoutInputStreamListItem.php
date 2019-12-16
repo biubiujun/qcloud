@@ -4,10 +4,28 @@ namespace BiuBiuJun\QCloud\Tic\Requests\Record\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
+/**
+ * Class MixStreamCustomLayoutInputStreamListItem
+ *
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record\Parameters
+ */
 class MixStreamCustomLayoutInputStreamListItem extends BaseParameter
 {
+    /**
+     * @var array
+     */
     private $layOutParams = [];
 
+    /**
+     * MixStreamCustomLayoutInputStreamListItem constructor.
+     *
+     * @param string $inputStreamId
+     * @param int    $layoutParamsWidth
+     * @param int    $layoutParamsHeight
+     * @param int    $layoutParamsX
+     * @param int    $layoutParamsY
+     * @param int    $layoutParamsZOrder
+     */
     public function __construct(
         string $inputStreamId,
         int $layoutParamsWidth,

@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class FriendCheckResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\Sns
+ * @package BiuBiuJun\QCloud\Tim\Responses\Sns
  */
 class FriendCheckResponse extends TimResponse
 {

@@ -10,7 +10,7 @@ use Closure;
 /**
  * Class TicClient
  *
- * @package BiuBiuJun\QCloud\TicClient
+ * @package BiuBiuJun\QCloud\Tic
  */
 class TicClient extends AbstractClient
 {

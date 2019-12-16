@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class ImportGroupRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\GroupOpenHttpSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc
  */
 class ImportGroupRequest extends BaseRequest
 {

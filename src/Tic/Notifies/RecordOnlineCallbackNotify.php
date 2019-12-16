@@ -7,7 +7,7 @@ use Closure;
 /**
  * Class RecordOnlineCallbackNotify
  *
- * @package BiuBiuJun\QCloud\TicClient\Notifies
+ * @package BiuBiuJun\QCloud\Tic\Notifies
  */
 class RecordOnlineCallbackNotify extends BaseNotify
 {

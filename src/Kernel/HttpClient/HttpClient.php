@@ -14,6 +14,11 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
+/**
+ * Class HttpClient
+ *
+ * @package BiuBiuJun\QCloud\Kernel\HttpClient
+ */
 abstract class HttpClient
 {
     const MAX_RETRIES = 3;

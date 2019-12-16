@@ -2,6 +2,11 @@
 
 namespace BiuBiuJun\QCloud\Tim\Requests\Sns\Parameters;
 
+/**
+ * Trait SetAddFriendItem
+ *
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns\Parameters
+ */
 trait SetAddFriendItem
 {
     /**

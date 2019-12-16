@@ -2,6 +2,11 @@
 
 namespace BiuBiuJun\QCloud\Kernel\Sign;
 
+/**
+ * Class TcSign
+ *
+ * @package BiuBiuJun\QCloud\Kernel\Sign
+ */
 class TcSign
 {
     /**

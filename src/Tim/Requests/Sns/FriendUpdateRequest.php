@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\Sns\Parameters\FriendItem;
 /**
  * Class FriendUpdateRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Sns
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns
  */
 class FriendUpdateRequest extends BaseRequest
 {

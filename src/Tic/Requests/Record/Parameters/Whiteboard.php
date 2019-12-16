@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
 /**
  * Class Whiteboard
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record\Parameters
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record\Parameters
  */
 class Whiteboard extends BaseParameter
 {

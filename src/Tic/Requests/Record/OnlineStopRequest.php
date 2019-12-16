@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class OnlineStopRequest
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record
  */
 class OnlineStopRequest extends BaseRequest
 {

@@ -9,6 +9,11 @@ use Closure;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class BaseNotify
+ *
+ * @package BiuBiuJun\QCloud\Tic\Notifies
+ */
 abstract class BaseNotify
 {
     const SUCCESS = 0;

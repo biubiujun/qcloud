@@ -5,6 +5,11 @@ namespace BiuBiuJun\QCloud\Kernel\Sign;
 use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
 use BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface;
 
+/**
+ * Class TlsSignV2
+ *
+ * @package BiuBiuJun\QCloud\Kernel\Sign
+ */
 class TlsSignV2 implements TlsSignInterface
 {
     use TlsBase64;

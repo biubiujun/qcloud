@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
 /**
  * Class Concat
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record\Parameters
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record\Parameters
  */
 class Concat extends BaseParameter
 {

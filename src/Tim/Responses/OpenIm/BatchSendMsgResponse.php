@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class BatchSendMsgResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenIm
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenIm
  */
 class BatchSendMsgResponse extends TimResponse
 {

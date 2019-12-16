@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgBody;
 /**
  * Class ImportMsgRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\OpenIm
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenIm
  */
 class ImportMsgRequest extends BaseRequest
 {

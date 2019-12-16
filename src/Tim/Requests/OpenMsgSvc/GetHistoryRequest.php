@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class GetHistoryRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\OpenMsgSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenMsgSvc
  */
 class GetHistoryRequest extends BaseRequest
 {

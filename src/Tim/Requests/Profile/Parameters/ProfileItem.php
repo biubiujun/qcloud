@@ -5,9 +5,9 @@ namespace BiuBiuJun\QCloud\Tim\Requests\Profile\Parameters;
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
 /**
- * Class Portrait
+ * Class ProfileItem
  *
- * @package BiuBiuJun\QCloud\TimClient\Parameters
+ * @package BiuBiuJun\QCloud\Tim\Requests\Profile\Parameters
  */
 class ProfileItem extends BaseParameter
 {

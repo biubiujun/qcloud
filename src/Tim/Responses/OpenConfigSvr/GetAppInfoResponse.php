@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class GetAppInfoResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenConfigSvr
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenConfigSvr
  */
 class GetAppInfoResponse extends TimResponse
 {

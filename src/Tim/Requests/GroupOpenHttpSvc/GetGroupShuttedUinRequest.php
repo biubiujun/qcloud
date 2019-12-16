@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class GetGroupShuttedUinRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\GroupOpenHttpSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc
  */
 class GetGroupShuttedUinRequest extends BaseRequest
 {

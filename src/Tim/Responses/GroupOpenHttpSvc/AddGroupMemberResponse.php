@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class AddGroupMemberResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\GroupOpenHttpSvc
+ * @package BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc
  */
 class AddGroupMemberResponse extends TimResponse
 {

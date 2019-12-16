@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgBody;
 /**
  * Class SendGroupMsgRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\GroupOpenHttpSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc
  */
 class SendGroupMsgRequest extends BaseRequest
 {

@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class GetNoSpeakingRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\OpenConfigSvr
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenConfigSvr
  */
 class GetNoSpeakingRequest extends BaseRequest
 {

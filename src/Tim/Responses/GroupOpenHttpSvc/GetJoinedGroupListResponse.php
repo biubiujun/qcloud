@@ -4,6 +4,11 @@ namespace BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc;
 
 use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 
+/**
+ * Class GetJoinedGroupListResponse
+ *
+ * @package BiuBiuJun\QCloud\Tim\Responses\GroupOpenHttpSvc
+ */
 class GetJoinedGroupListResponse extends TimResponse
 {
     /**

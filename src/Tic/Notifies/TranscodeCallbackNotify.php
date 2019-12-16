@@ -7,7 +7,7 @@ use Closure;
 /**
  * Class TranscodeCallbackNotify
  *
- * @package BiuBiuJun\QCloud\TicClient\Notifies
+ * @package BiuBiuJun\QCloud\Tic\Notifies
  */
 class TranscodeCallbackNotify extends BaseNotify
 {

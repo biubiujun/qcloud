@@ -2,6 +2,11 @@
 
 namespace BiuBiuJun\QCloud\Tim\Constants;
 
+/**
+ * Class SnsIm
+ *
+ * @package BiuBiuJun\QCloud\Tim\Constants
+ */
 class SnsIm
 {
     /*

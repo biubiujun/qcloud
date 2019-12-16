@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc\Parameters\MemberItem;
 /**
  * Class CreateGroupRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\GroupOpenHttpSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\GroupOpenHttpSvc
  */
 class CreateGroupRequest extends BaseRequest
 {

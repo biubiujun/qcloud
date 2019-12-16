@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tic\Responses\TicResponse;
 /**
  * Class TranscodeCallbackResponse
  *
- * @package BiuBiuJun\QCloud\TicClient\Responses\Transcode
+ * @package BiuBiuJun\QCloud\Tic\Responses\Transcode
  */
 class TranscodeCallbackResponse extends TicResponse
 {

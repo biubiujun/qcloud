@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class MultiAccountImportRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\ImOpenLoginSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc
  */
 class MultiAccountImportRequest extends BaseRequest
 {

@@ -5,7 +5,7 @@ namespace BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgElements;
 /**
  * Class VideoFile
  *
- * @package BiuBiuJun\QCloud\TimClient\Parameters\MsgElements
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgElements
  */
 class VideoFile extends MsgElement
 {

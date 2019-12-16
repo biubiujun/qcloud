@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class AccountDeleteResponse
  *
- * @package BiuBiuJun\QCloud\TIM\Responses\ImOpenLoginSvc
+ * @package BiuBiuJun\QCloud\Tim\Responses\ImOpenLoginSvc
  */
 class AccountDeleteResponse extends TimResponse
 {

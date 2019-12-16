@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class PortraitGetRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Profile
+ * @package BiuBiuJun\QCloud\Tim\Requests\Profile
  */
 class PortraitGetRequest extends BaseRequest
 {

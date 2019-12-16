@@ -6,9 +6,9 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
 
 /**
- * Class TlsSigHttpClient
+ * Class TicKeyHttpClient
  *
- * @package BiuBiuJun\QCloud\TimClient
+ * @package BiuBiuJun\QCloud\Kernel\HttpClient
  */
 class TicKeyHttpClient extends HttpClient
 {

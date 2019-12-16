@@ -5,9 +5,9 @@ namespace BiuBiuJun\QCloud\Tic\Requests\Record;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class OnlineCallback
+ * Class OnlineCallbackRequest
  *
- * @package BiuBiuJun\QCloud\TicClient\Requests\Record
+ * @package BiuBiuJun\QCloud\Tic\Requests\Record
  */
 class OnlineCallbackRequest extends BaseRequest
 {

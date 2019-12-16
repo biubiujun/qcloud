@@ -4,6 +4,11 @@ namespace BiuBiuJun\QCloud\Kernel\Sign;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidConfigException;
 
+/**
+ * Trait TlsSignKey
+ *
+ * @package BiuBiuJun\QCloud\Kernel\Sign
+ */
 trait TlsSignKey
 {
     /**

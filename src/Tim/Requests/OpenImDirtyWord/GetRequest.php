@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class GetRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\OpenImDirtyWord
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenImDirtyWord
  */
 class GetRequest extends BaseRequest
 {

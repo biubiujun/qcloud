@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class PortraitGetResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\Profile
+ * @package BiuBiuJun\QCloud\Tim\Responses\Profile
  */
 class PortraitGetResponse extends TimResponse
 {

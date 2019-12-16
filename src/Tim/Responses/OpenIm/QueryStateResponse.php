@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class QueryStateResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenIm
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenIm
  */
 class QueryStateResponse extends TimResponse
 {

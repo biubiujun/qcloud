@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseParameter;
 /**
  * Class FriendItem
  *
- * @package BiuBiuJun\QCloud\TimClient\Parameters
+ * @package BiuBiuJun\QCloud\Tim\Requests\Sns\Parameters
  */
 class FriendItem extends BaseParameter
 {

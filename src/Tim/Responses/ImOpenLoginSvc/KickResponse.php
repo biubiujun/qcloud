@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class KickResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses
+ * @package BiuBiuJun\QCloud\Tim\Responses
  */
 class KickResponse extends TimResponse
 {

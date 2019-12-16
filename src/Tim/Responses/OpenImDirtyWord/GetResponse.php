@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class GetResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenImDirtyWord
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenImDirtyWord
  */
 class GetResponse extends TimResponse
 {

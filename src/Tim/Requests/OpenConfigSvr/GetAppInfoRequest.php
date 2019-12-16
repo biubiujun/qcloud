@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class GetAppInfoRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenConfigSvr
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenConfigSvr
  */
 class GetAppInfoRequest extends BaseRequest
 {

@@ -4,6 +4,11 @@ namespace BiuBiuJun\QCloud\Kernel\Sign;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
 
+/**
+ * Trait TlsBase64
+ *
+ * @package BiuBiuJun\QCloud\Kernel\Sign
+ */
 trait TlsBase64
 {
     /**

@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class BlackListCheckResponse
  *
- * @package BiuBiuJun\QCloud\TIM\Responses\Sns
+ * @package BiuBiuJun\QCloud\Tim\Responses\Sns
  */
 class BlackListCheckResponse extends TimResponse
 {

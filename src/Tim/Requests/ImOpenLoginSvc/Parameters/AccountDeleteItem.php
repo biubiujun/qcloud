@@ -4,6 +4,11 @@ namespace BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc\Parameters;
 
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
+/**
+ * Class AccountDeleteItem
+ *
+ * @package BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc\Parameters
+ */
 class AccountDeleteItem extends BaseParameter
 {
     /**

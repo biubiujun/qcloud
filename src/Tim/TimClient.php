@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Kernel\HttpClient\TlsSigHttpClient;
 /**
  * Class TimClient
  *
- * @package BiuBiuJun\QCloud\TimClient
+ * @package BiuBiuJun\QCloud\Tim
  */
 class TimClient extends AbstractClient
 {

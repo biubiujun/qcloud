@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc\Parameters\AccountDeleteItem;
 /**
  * Class AccountDeleteRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\ImOpenLoginSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc
  */
 class AccountDeleteRequest extends BaseRequest
 {

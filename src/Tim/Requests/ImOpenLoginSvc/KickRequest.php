@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class KickRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\ImOpenLoginSvc
+ * @package BiuBiuJun\QCloud\Tim\Requests\ImOpenLoginSvc
  */
 class KickRequest extends BaseRequest
 {

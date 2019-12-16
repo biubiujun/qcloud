@@ -2,6 +2,11 @@
 
 namespace BiuBiuJun\QCloud\Vod\Responses;
 
+/**
+ * Class PullUploadResponse
+ *
+ * @package BiuBiuJun\QCloud\Vod\Responses
+ */
 class PullUploadResponse extends VodResponse
 {
     /**

@@ -2,6 +2,11 @@
 
 namespace BiuBiuJun\QCloud\Tim\Constants;
 
+/**
+ * Class Group
+ *
+ * @package BiuBiuJun\QCloud\Tim\Constants
+ */
 class Group
 {
     /*

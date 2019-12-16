@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Tim\Requests\Profile\Parameters\ProfileItem;
 /**
  * Class PortraitSetRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\Profile
+ * @package BiuBiuJun\QCloud\Tim\Requests\Profile
  */
 class PortraitSetRequest extends BaseRequest
 {

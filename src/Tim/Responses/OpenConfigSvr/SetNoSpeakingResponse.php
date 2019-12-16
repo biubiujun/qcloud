@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tim\Responses\TimResponse;
 /**
  * Class SetNoSpeakingResponse
  *
- * @package BiuBiuJun\QCloud\TimClient\Responses\OpenConfigSvr
+ * @package BiuBiuJun\QCloud\Tim\Responses\OpenConfigSvr
  */
 class SetNoSpeakingResponse extends TimResponse
 {

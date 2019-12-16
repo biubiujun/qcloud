@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Tic\Responses\TicResponse;
 /**
  * Class OfflineCallbackResponse
  *
- * @package BiuBiuJun\QCloud\TicClient\Responses\Record
+ * @package BiuBiuJun\QCloud\Tic\Responses\Record
  */
 class OfflineCallbackResponse extends TicResponse
 {

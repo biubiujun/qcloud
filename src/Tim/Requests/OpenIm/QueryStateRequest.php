@@ -7,7 +7,7 @@ use BiuBiuJun\QCloud\Kernel\BaseRequest;
 /**
  * Class QueryStateRequest
  *
- * @package BiuBiuJun\QCloud\TimClient\Requests\OpenIm
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenIm
  */
 class QueryStateRequest extends BaseRequest
 {

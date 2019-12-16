@@ -5,7 +5,7 @@ namespace BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgElements;
 /**
  * Class Image
  *
- * @package BiuBiuJun\QCloud\TimClient\Parameters\MsgElements
+ * @package BiuBiuJun\QCloud\Tim\Requests\OpenIm\Parameters\MsgElements
  */
 class Image extends MsgElement
 {
