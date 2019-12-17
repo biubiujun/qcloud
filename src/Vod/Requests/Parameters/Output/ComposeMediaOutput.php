@@ -5,14 +5,14 @@ namespace BiuBiuJun\QCloud\Vod\Requests\Parameters\Output;
 use BiuBiuJun\QCloud\Kernel\BaseParameter;
 
 /**
- * Class ComposerMediaOutput
+ * Class ComposeMediaOutput
  *
  * @package BiuBiuJun\QCloud\Vod\Requests\Parameters
  */
-class ComposerMediaOutput extends BaseParameter
+class ComposeMediaOutput extends BaseParameter
 {
     /**
-     * ComposerMediaOutput constructor.
+     * ComposeMediaOutput constructor.
      *
      * @param string $fileName
      */

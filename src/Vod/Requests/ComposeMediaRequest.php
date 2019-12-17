@@ -4,20 +4,26 @@ namespace BiuBiuJun\QCloud\Vod\Requests;
 
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Canvas;
-use BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposerMediaOutput;
+use BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposeMediaOutput;
+use BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\MediaTrack;
 
 /**
- * Class ComposerMediaRequest
+ * Class ComposeMediaRequest
  *
  * @package BiuBiuJun\QCloud\Vod\Requests
  */
-class ComposerMediaRequest extends BaseRequest
+class ComposeMediaRequest extends BaseRequest
 {
     /**
-     * ComposerMediaRequest constructor.
+     * ComposeMediaRequest constructor.
+     *
+     * @param array                                                               $tracks
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposeMediaOutput $composeMediaOutput
      */
-    public function __construct()
+    public function __construct(array $tracks, ComposeMediaOutput $composeMediaOutput)
     {
+        $this->setTracks($tracks)
+            ->setOutput($composeMediaOutput);
     }
 
     /**
@@ -25,7 +31,7 @@ class ComposerMediaRequest extends BaseRequest
      */
     public function getAction(): string
     {
-        return 'ConfirmEvents';
+        return 'ComposeMedia';
     }
 
     /**
@@ -43,17 +49,22 @@ class ComposerMediaRequest extends BaseRequest
      */
     public function setTracks(array $tracks)
     {
-        $this->setParameter('Tracks', $tracks);
+        $result = [];
+        foreach ($tracks as $track) {
+            $result[] = $track instanceof MediaTrack ? $track->getParameters() : $track;
+        }
+
+        $this->setParameter('Tracks', $result);
 
         return $this;
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposerMediaOutput $composerMediaOutput
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposeMediaOutput $composerMediaOutput
      *
      * @return $this
      */
-    public function setOutput(ComposerMediaOutput $composerMediaOutput)
+    public function setOutput(ComposeMediaOutput $composerMediaOutput)
     {
         $this->setParameter('Output', $composerMediaOutput->getParameters());
 
@@ -67,7 +78,7 @@ class ComposerMediaRequest extends BaseRequest
      */
     public function setCanvas(Canvas $canvas)
     {
-        $this->setParameter('Canvas', $canvas);
+        $this->setParameter('Canvas', $canvas->getParameters());
 
         return $this;
     }
