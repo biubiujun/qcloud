@@ -30,7 +30,7 @@ class RecordTest extends TestCase
 //        $mixStream->setTeacherId('ff570402f88748fcbe7eca303a1ca275');
 
         $canvas = new MixStreamCustomLayoutCanvas(1280, 960);
-//        $canvas = new MixStreamCustomLayoutCanvas(1280, 960);
+//        $canvas = new Canvas(1280, 960);
 
         $ticRecordUser = new MixStreamCustomLayoutInputStreamListItem(
             'tic_record_user',

@@ -2,12 +2,14 @@
 
 namespace BiuBiuJun\QCloud\Vod\Responses;
 
+use BiuBiuJun\QCloud\Kernel\BaseTcResponse;
+
 /**
  * Class DescribeMediaInfosResponse
  *
  * @package BiuBiuJun\QCloud\Vod\Responses
  */
-class DescribeMediaInfosResponse extends VodResponse
+class DescribeMediaInfosResponse extends BaseTcResponse
 {
     /**
      * @return array
@@ -23,13 +25,5 @@ class DescribeMediaInfosResponse extends VodResponse
     public function getNotExistFileIdSet()
     {
         return $this->content['NotExistFileIdSet'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestId()
-    {
-        return $this->content['RequestId'];
     }
 }

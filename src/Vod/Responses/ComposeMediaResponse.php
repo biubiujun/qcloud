@@ -2,7 +2,9 @@
 
 namespace BiuBiuJun\QCloud\Vod\Responses;
 
-class ComposeMediaResponse extends VodResponse
+use BiuBiuJun\QCloud\Kernel\BaseTcResponse;
+
+class ComposeMediaResponse extends BaseTcResponse
 {
     /**
      * @return string
@@ -10,13 +12,5 @@ class ComposeMediaResponse extends VodResponse
     public function getTaskId()
     {
         return $this->content['TaskId'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestId()
-    {
-        return $this->content['RequestId'];
     }
 }

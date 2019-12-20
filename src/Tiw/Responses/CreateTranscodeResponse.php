@@ -1,15 +1,15 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Vod\Responses;
+namespace BiuBiuJun\QCloud\Tiw\Responses;
 
 use BiuBiuJun\QCloud\Kernel\BaseTcResponse;
 
 /**
- * Class PullUploadResponse
+ * Class CreateTranscodeResponse
  *
- * @package BiuBiuJun\QCloud\Vod\Responses
+ * @package BiuBiuJun\QCloud\Tiw\Responses
  */
-class PullUploadResponse extends BaseTcResponse
+class CreateTranscodeResponse extends BaseTcResponse
 {
     /**
      * @return string
