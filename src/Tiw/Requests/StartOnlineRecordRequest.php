@@ -29,6 +29,22 @@ class StartOnlineRecordRequest extends BaseRequest
     }
 
     /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return 'StartOnlineRecord';
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return '2019-09-19';
+    }
+
+    /**
      * @param string $roomId
      *
      * @return $this

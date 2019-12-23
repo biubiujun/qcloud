@@ -22,6 +22,22 @@ class SetOnlineRecordCallbackRequest extends BaseRequest
     }
 
     /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return 'SetOnlineRecordCallback';
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return '2019-09-19';
+    }
+
+    /**
      * @param string $callback
      *
      * @return $this

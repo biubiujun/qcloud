@@ -24,6 +24,22 @@ class CreateTranscodeRequest extends BaseRequest
     }
 
     /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return 'CreateTranscode';
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return '2019-09-19';
+    }
+
+    /**
      * @param string $url
      *
      * @return $this

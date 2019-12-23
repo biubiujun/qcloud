@@ -22,6 +22,22 @@ class PauseOnlineRecordRequest extends BaseRequest
     }
 
     /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return 'PauseOnlineRecord';
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return '2019-09-19';
+    }
+
+    /**
      * @param string $taskId
      *
      * @return $this
