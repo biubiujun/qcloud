@@ -25,18 +25,16 @@ class TiwClient extends AbstractClient
      * @param string $secretId
      * @param string $secretKey
      * @param string $sdkAppId
-     * @param string $identifier
      * @param string $privateKey
      * @param string $publicKey
      * @param string $sigVersion
      */
-    public function __construct(string $secretId, string $secretKey, string $sdkAppId, string $identifier, string $privateKey, string $publicKey, $sigVersion = 'V1')
+    public function __construct(string $secretId, string $secretKey, string $sdkAppId = '', string $privateKey = '', string $publicKey = '', $sigVersion = 'V1')
     {
         $this->secretId = $secretId;
         $this->secretKey = $secretKey;
 
         $this->sdkAppId = $sdkAppId;
-        $this->identifier = $identifier;
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
         $this->sigVersion = $sigVersion;
