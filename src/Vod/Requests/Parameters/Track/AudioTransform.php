@@ -34,7 +34,7 @@ class AudioTransform extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\AudioVolumeParam $audioVolumeParam
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\AudioVolumeParam $audioVolumeParam
      *
      * @return $this
      */

@@ -17,7 +17,7 @@ class AudioVolumeParam extends BaseParameter
      * @param int   $mute
      * @param float $gain
      */
-    public function __construct(int $mute = 0, float $gain = 0)
+    public function __construct(int $mute = 0, float $gain = 0.0)
     {
         $this->setMute($mute)
             ->setGain($gain);

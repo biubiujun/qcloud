@@ -22,7 +22,7 @@ trait SendRequest
      * @param array                                $options
      * @param bool                                 $isAsync
      *
-     * @return \BiuBiuJun\QCloud\Kernel\BaseResponse
+     * @return \BiuBiuJun\QCloud\Kernel\BaseResponse|\GuzzleHttp\Promise\PromiseInterface
      * @throws \BiuBiuJun\QCloud\Exceptions\BadRequestException
      * @throws \BiuBiuJun\QCloud\Exceptions\HttpException
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException

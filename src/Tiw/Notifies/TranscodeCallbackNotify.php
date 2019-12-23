@@ -1,13 +1,13 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Tic\Notifies;
+namespace BiuBiuJun\QCloud\Tiw\Notifies;
 
 use Closure;
 
 /**
  * Class TranscodeCallbackNotify
  *
- * @package BiuBiuJun\QCloud\Tic\Notifies
+ * @package BiuBiuJun\QCloud\Tiw\Notifies
  */
 class TranscodeCallbackNotify extends BaseNotify
 {

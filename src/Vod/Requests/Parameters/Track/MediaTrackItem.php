@@ -34,7 +34,7 @@ class MediaTrackItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\VideoTrackItem $videoTrackItem
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\VideoTrackItem $videoTrackItem
      *
      * @return $this
      */
@@ -46,7 +46,7 @@ class MediaTrackItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\AudioTrackItem $audioTrackItem
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\AudioTrackItem $audioTrackItem
      *
      * @return $this
      */
@@ -58,7 +58,7 @@ class MediaTrackItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\StickerTrackItem $stickerTrackItem
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\StickerTrackItem $stickerTrackItem
      *
      * @return $this
      */
@@ -70,7 +70,7 @@ class MediaTrackItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\MediaTransitionItem $mediaTransitionItem
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\MediaTransitionItem $mediaTransitionItem
      *
      * @return $this
      */
@@ -82,7 +82,7 @@ class MediaTrackItem extends BaseParameter
     }
 
     /**
-     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\EmptyTrackItem $emptyTrackItem
+     * @param \BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\EmptyTrackItem $emptyTrackItem
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Tic\Notifies;
+namespace BiuBiuJun\QCloud\Tiw\Notifies;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
 use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class BaseNotify
  *
- * @package BiuBiuJun\QCloud\Tic\Notifies
+ * @package BiuBiuJun\QCloud\Tiw\Notifies
  */
 abstract class BaseNotify
 {

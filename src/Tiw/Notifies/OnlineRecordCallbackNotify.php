@@ -1,15 +1,15 @@
 <?php
 
-namespace BiuBiuJun\QCloud\Tic\Notifies;
+namespace BiuBiuJun\QCloud\Tiw\Notifies;
 
 use Closure;
 
 /**
- * Class RecordOnlineCallbackNotify
+ * Class OnlineRecordCallbackNotify
  *
  * @package BiuBiuJun\QCloud\Tic\Notifies
  */
-class RecordOnlineCallbackNotify extends BaseNotify
+class OnlineRecordCallbackNotify extends BaseNotify
 {
     /**
      * @param \Closure $closure
