@@ -14,11 +14,13 @@ class DescribeOnlineRecordRequest extends BaseRequest
     /**
      * DescribeOnlineRecordRequest constructor.
      *
+     * @param int    $sdkAppId
      * @param string $taskId
      */
-    public function __construct(string $taskId)
+    public function __construct(int $sdkAppId, string $taskId)
     {
-        $this->setTaskId($taskId);
+        $this->setSdkAppId($sdkAppId)
+            ->setTaskId($taskId);
     }
 
     /**
@@ -35,6 +37,26 @@ class DescribeOnlineRecordRequest extends BaseRequest
     public function getVersion(): string
     {
         return '2019-09-19';
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegion(): string
+    {
+        return 'ap-guangzhou';
+    }
+
+    /**
+     * @param int $sdkAppId
+     *
+     * @return $this
+     */
+    public function setSdkAppId(int $sdkAppId)
+    {
+        $this->setParameter('SdkAppId', $sdkAppId);
+
+        return $this;
     }
 
     /**

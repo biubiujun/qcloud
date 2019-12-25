@@ -17,13 +17,15 @@ class StartOnlineRecordRequest extends BaseRequest
     /**
      * StartOnlineRecordRequest constructor.
      *
+     * @param int    $sdkAppId
      * @param int    $roomId
      * @param string $recordUserId
      * @param string $recordUserSig
      */
-    public function __construct(int $roomId, string $recordUserId, string $recordUserSig)
+    public function __construct(int $sdkAppId, int $roomId, string $recordUserId, string $recordUserSig)
     {
-        $this->setRoomId($roomId)
+        $this->setSdkAppId($sdkAppId)
+            ->setRoomId($roomId)
             ->setRecordUserId($recordUserId)
             ->setRecordUserSig($recordUserSig);
     }
@@ -45,11 +47,31 @@ class StartOnlineRecordRequest extends BaseRequest
     }
 
     /**
-     * @param string $roomId
+     * @return string
+     */
+    public function getRegion(): string
+    {
+        return 'ap-guangzhou';
+    }
+
+    /**
+     * @param int $sdkAppId
      *
      * @return $this
      */
-    public function setRoomId(string $roomId)
+    public function setSdkAppId(int $sdkAppId)
+    {
+        $this->setParameter('SdkAppId', $sdkAppId);
+
+        return $this;
+    }
+
+    /**
+     * @param int $roomId
+     *
+     * @return $this
+     */
+    public function setRoomId(int $roomId)
     {
         $this->setParameter('RoomId', $roomId);
 

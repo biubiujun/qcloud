@@ -14,11 +14,13 @@ class SetOnlineRecordCallbackRequest extends BaseRequest
     /**
      * SetOnlineRecordCallbackRequest constructor.
      *
+     * @param int    $sdkAppId
      * @param string $callback
      */
-    public function __construct(string $callback)
+    public function __construct(int $sdkAppId, string $callback)
     {
-        $this->setCallback($callback);
+        $this->setSdkAppId($sdkAppId)
+            ->setCallback($callback);
     }
 
     /**
@@ -35,6 +37,26 @@ class SetOnlineRecordCallbackRequest extends BaseRequest
     public function getVersion(): string
     {
         return '2019-09-19';
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegion(): string
+    {
+        return 'ap-guangzhou';
+    }
+
+    /**
+     * @param int $sdkAppId
+     *
+     * @return $this
+     */
+    public function setSdkAppId(int $sdkAppId)
+    {
+        $this->setParameter('SdkAppId', $sdkAppId);
+
+        return $this;
     }
 
     /**
