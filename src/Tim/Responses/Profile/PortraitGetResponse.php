@@ -18,8 +18,10 @@ class PortraitGetResponse extends TimResponse
     {
         foreach ($this->content['UserProfileItem'] as &$userProfileItem) {
             $profileItem = [];
-            foreach ($userProfileItem['ProfileItem'] as $item) {
-                $profileItem[$item['Tag']] = $item['Value'];
+            if (isset($userProfileItem['ProfileItem'])) {
+                foreach ($userProfileItem['ProfileItem'] as $item) {
+                    $profileItem[$item['Tag']] = $item['Value'];
+                }
             }
             $userProfileItem['ProfileItem'] = $profileItem;
         }
