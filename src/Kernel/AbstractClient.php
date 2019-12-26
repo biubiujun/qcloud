@@ -107,23 +107,6 @@ abstract class AbstractClient
     }
 
     /**
-     * @return \BiuBiuJun\QCloud\Kernel\Sign\TicSign
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
-     */
-    public function getTicSign()
-    {
-        if (!$this->ticSign instanceof TicSign) {
-            if (empty($this->sdkAppId)) {
-                throw new InvalidArgumentException('sdkAppId is empty.');
-            }
-
-            $this->ticSign = new TicSign($this->ticKey);
-        }
-
-        return $this->ticSign;
-    }
-
-    /**
      * @return \BiuBiuJun\QCloud\Kernel\Sign\TcSign
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
      */

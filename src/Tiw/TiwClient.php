@@ -67,7 +67,7 @@ class TiwClient extends AbstractClient
             throw new InvalidArgumentException("Notify Class {$notifyClass} not exist.");
         }
         /** @var \BiuBiuJun\QCloud\Tiw\Notifies\BaseNotify $notify */
-        $notify = new $notifyClass($this->getTicSign());
+        $notify = new $notifyClass();
 
         return $notify->handle($closure);
     }
