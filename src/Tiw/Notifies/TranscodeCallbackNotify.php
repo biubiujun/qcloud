@@ -16,7 +16,6 @@ class TranscodeCallbackNotify extends BaseNotify
      *
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
     public function handle(Closure $closure)
     {

@@ -3,8 +3,6 @@
 namespace BiuBiuJun\QCloud\Tiw\Notifies;
 
 use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
-use BiuBiuJun\QCloud\Exceptions\InvalidSignException;
-use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
 use Closure;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,29 +14,22 @@ use Symfony\Component\HttpFoundation\Response;
  */
 abstract class BaseNotify
 {
-    const SUCCESS = 0;
-
-    const FAIL = -1;
-
-    /**
-     * @var \BiuBiuJun\QCloud\Kernel\Sign\TicSign
-     */
-    protected $TicSign;
-
     /**
      * @var int
      */
-    protected $errorCode;
+    protected $statusCode;
 
     /**
      * @var array
      */
     protected $message;
 
-    public function __construct(TicSign $TicSign)
+    /**
+     * BaseNotify constructor.
+     */
+    public function __construct()
     {
-        $this->TicSign = $TicSign;
-        $this->errorCode = static::SUCCESS;
+        $this->statusCode = Response::HTTP_OK;
     }
 
     /**
@@ -52,7 +43,7 @@ abstract class BaseNotify
 
     public function fail()
     {
-        $this->errorCode = static::FAIL;
+        $this->statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
     }
 
     /**
@@ -60,17 +51,12 @@ abstract class BaseNotify
      */
     public function toResponse()
     {
-        $response = json_encode([
-            'error_code' => $this->errorCode,
-        ]);
-
-        return new Response($response);
+        return new Response('', $this->statusCode);
     }
 
     /**
-     * @return array
+     * @return array|mixed
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
     public function getMessage()
     {
@@ -85,21 +71,7 @@ abstract class BaseNotify
             throw new InvalidArgumentException('Invalid request JSON.', 400);
         }
 
-        $this->validate($request);
-
         return $this->message = $message;
-    }
-
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
-     */
-    protected function validate(Request $request)
-    {
-        if (!$this->TicSign->verify($request->get('sign'), $request->get('expire_time'))) {
-            throw new InvalidSignException();
-        }
     }
 
     /**
@@ -107,7 +79,7 @@ abstract class BaseNotify
      */
     protected function strict($result)
     {
-        if (true !== $result && empty($this->errorCode)) {
+        if (true !== $result && empty($this->statusCode)) {
             $this->fail();
         }
     }
