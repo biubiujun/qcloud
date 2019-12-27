@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Vod\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class PullUploadRequest
  *
  * @package BiuBiuJun\QCloud\Vod\Requests
  */
-class PullUploadRequest extends BaseRequest
+class PullUploadRequest extends BaseVodRequest
 {
     /**
      * PullUploadRequest constructor.
@@ -27,14 +25,6 @@ class PullUploadRequest extends BaseRequest
     public function getAction(): string
     {
         return 'PullUpload';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2018-07-17';
     }
 
     /**

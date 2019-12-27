@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Vod\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class DescribeMediaInfosRequest
  *
  * @package BiuBiuJun\QCloud\Vod\Requests
  */
-class DescribeMediaInfosRequest extends BaseRequest
+class DescribeMediaInfosRequest extends BaseVodRequest
 {
     /**
      * DescribeMediaInfosRequest constructor.
@@ -27,14 +25,6 @@ class DescribeMediaInfosRequest extends BaseRequest
     public function getAction(): string
     {
         return 'DescribeMediaInfos';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2018-07-17';
     }
 
     /**

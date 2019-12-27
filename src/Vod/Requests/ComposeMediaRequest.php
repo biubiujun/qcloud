@@ -2,7 +2,6 @@
 
 namespace BiuBiuJun\QCloud\Vod\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Canvas;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Output\ComposeMediaOutput;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\MediaTrack;
@@ -12,7 +11,7 @@ use BiuBiuJun\QCloud\Vod\Requests\Parameters\Track\MediaTrack;
  *
  * @package BiuBiuJun\QCloud\Vod\Requests
  */
-class ComposeMediaRequest extends BaseRequest
+class ComposeMediaRequest extends BaseVodRequest
 {
     /**
      * ComposeMediaRequest constructor.
@@ -32,14 +31,6 @@ class ComposeMediaRequest extends BaseRequest
     public function getAction(): string
     {
         return 'ComposeMedia';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2018-07-17';
     }
 
     /**

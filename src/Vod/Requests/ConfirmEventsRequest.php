@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Vod\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class ConfirmEventsRequest
  *
  * @package BiuBiuJun\QCloud\Vod\Requests
  */
-class ConfirmEventsRequest extends BaseRequest
+class ConfirmEventsRequest extends BaseVodRequest
 {
     /**
      * ConfirmEventsRequest constructor.
@@ -27,14 +25,6 @@ class ConfirmEventsRequest extends BaseRequest
     public function getAction(): string
     {
         return 'ConfirmEvents';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2018-07-17';
     }
 
     /**
