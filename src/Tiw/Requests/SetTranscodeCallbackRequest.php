@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class SetTranscodeCallbackRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class SetTranscodeCallbackRequest extends BaseRequest
+class SetTranscodeCallbackRequest extends BaseTiwRequest
 {
     /**
      * SetTranscodeCallbackRequest constructor.
@@ -29,34 +27,6 @@ class SetTranscodeCallbackRequest extends BaseRequest
     public function getAction(): string
     {
         return 'SetTranscodeCallback';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
-    }
-
-    /**
-     * @param int $sdkAppId
-     *
-     * @return $this
-     */
-    public function setSdkAppId(int $sdkAppId)
-    {
-        $this->setParameter('SdkAppId', $sdkAppId);
-
-        return $this;
     }
 
     /**

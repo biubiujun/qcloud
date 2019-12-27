@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class ResumeOnlineRecordRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class ResumeOnlineRecordRequest extends BaseRequest
+class ResumeOnlineRecordRequest extends BaseTiwRequest
 {
     /**
      * ResumeOnlineRecordRequest constructor.
@@ -29,22 +27,6 @@ class ResumeOnlineRecordRequest extends BaseRequest
     public function getAction(): string
     {
         return 'ResumeOnlineRecord';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
     }
 
     /**

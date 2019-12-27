@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class CreateTranscodeRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class CreateTranscodeRequest extends BaseRequest
+class CreateTranscodeRequest extends BaseTiwRequest
 {
     /**
      * CreateTranscodeRequest constructor.
@@ -31,22 +29,6 @@ class CreateTranscodeRequest extends BaseRequest
     public function getAction(): string
     {
         return 'CreateTranscode';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
     }
 
     /**

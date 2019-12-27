@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class DescribeOnlineRecordRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class DescribeOnlineRecordRequest extends BaseRequest
+class DescribeOnlineRecordRequest extends BaseTiwRequest
 {
     /**
      * DescribeOnlineRecordRequest constructor.
@@ -29,22 +27,6 @@ class DescribeOnlineRecordRequest extends BaseRequest
     public function getAction(): string
     {
         return 'DescribeOnlineRecord';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
     }
 
     /**

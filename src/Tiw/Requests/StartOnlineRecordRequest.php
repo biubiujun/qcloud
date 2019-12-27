@@ -2,7 +2,6 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
 use BiuBiuJun\QCloud\Tiw\Requests\Parameters\Concat;
 use BiuBiuJun\QCloud\Tiw\Requests\Parameters\MixStream;
 use BiuBiuJun\QCloud\Tiw\Requests\Parameters\Whiteboard;
@@ -12,7 +11,7 @@ use BiuBiuJun\QCloud\Tiw\Requests\Parameters\Whiteboard;
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class StartOnlineRecordRequest extends BaseRequest
+class StartOnlineRecordRequest extends BaseTiwRequest
 {
     /**
      * StartOnlineRecordRequest constructor.
@@ -36,34 +35,6 @@ class StartOnlineRecordRequest extends BaseRequest
     public function getAction(): string
     {
         return 'StartOnlineRecord';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
-    }
-
-    /**
-     * @param int $sdkAppId
-     *
-     * @return $this
-     */
-    public function setSdkAppId(int $sdkAppId)
-    {
-        $this->setParameter('SdkAppId', $sdkAppId);
-
-        return $this;
     }
 
     /**

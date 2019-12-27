@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class PauseOnlineRecordRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class PauseOnlineRecordRequest extends BaseRequest
+class PauseOnlineRecordRequest extends BaseTiwRequest
 {
     /**
      * PauseOnlineRecordRequest constructor.
@@ -29,22 +27,6 @@ class PauseOnlineRecordRequest extends BaseRequest
     public function getAction(): string
     {
         return 'PauseOnlineRecord';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
     }
 
     /**

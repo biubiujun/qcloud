@@ -2,14 +2,12 @@
 
 namespace BiuBiuJun\QCloud\Tiw\Requests;
 
-use BiuBiuJun\QCloud\Kernel\BaseRequest;
-
 /**
  * Class StopOnlineRecordRequest
  *
  * @package BiuBiuJun\QCloud\Tiw\Requests
  */
-class StopOnlineRecordRequest extends BaseRequest
+class StopOnlineRecordRequest extends BaseTiwRequest
 {
     /**
      * StopOnlineRecordRequest constructor.
@@ -29,34 +27,6 @@ class StopOnlineRecordRequest extends BaseRequest
     public function getAction(): string
     {
         return 'StopOnlineRecord';
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return '2019-09-19';
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion(): string
-    {
-        return 'ap-guangzhou';
-    }
-
-    /**
-     * @param int $sdkAppId
-     *
-     * @return $this
-     */
-    public function setSdkAppId(int $sdkAppId)
-    {
-        $this->setParameter('SdkAppId', $sdkAppId);
-
-        return $this;
     }
 
     /**
