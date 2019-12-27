@@ -63,7 +63,7 @@ class TlsSigHttpClient extends HttpClient
         ]);
 
         if ($options) {
-            array_push($result, $options);
+            $result = array_merge($result, $options);
         }
 
         return $result;
