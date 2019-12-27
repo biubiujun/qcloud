@@ -64,11 +64,6 @@ abstract class AbstractClient
     protected $tlsSign = null;
 
     /**
-     * @var \BiuBiuJun\QCloud\Kernel\Sign\TicSign
-     */
-    protected $ticSign = null;
-
-    /**
      * @var \BiuBiuJun\QCloud\Kernel\Sign\TcSign
      */
     protected $tcSign = null;
