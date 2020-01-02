@@ -57,8 +57,8 @@ class TcSign
 
     public function sign(array $body, string $host, array $query = [], string $method = 'POST')
     {
-        $this->timestamp = time();
-        $this->date = date('Y-m-d', $this->timestamp);
+        $this->timestamp = strtotime(gmdate('Y-m-d H:i:s'));
+        $this->date = gmdate('Y-m-d');
         $this->service = explode('.', $host)[0] ?? '';
         $this->credentialScope = "{$this->date}/{$this->service}/{$this->tc3Request}";
 
