@@ -5,11 +5,11 @@ namespace BiuBiuJun\QCloud\Trtc\Requests;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class DissolveRoomRequest
+ * Class DismissRoomRequest
  *
  * @package BiuBiuJun\QCloud\Trtc\Requests
  */
-class DissolveRoomRequest extends BaseRequest
+class DismissRoomRequest extends BaseRequest
 {
     public function __construct(int $sdkAppId, int $roomId)
     {
@@ -22,7 +22,7 @@ class DissolveRoomRequest extends BaseRequest
      */
     public function getAction(): string
     {
-        return 'DissolveRoom';
+        return 'DismissRoom';
     }
 
     /**

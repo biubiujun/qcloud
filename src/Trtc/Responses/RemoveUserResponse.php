@@ -5,10 +5,10 @@ namespace BiuBiuJun\QCloud\Trtc\Responses;
 use BiuBiuJun\QCloud\Kernel\BaseTcResponse;
 
 /**
- * Class DissolveRoomResponse
+ * Class RemoveUserResponse
  *
  * @package BiuBiuJun\QCloud\Trtc\Responses
  */
-class DissolveRoomResponse extends BaseTcResponse
+class RemoveUserResponse extends BaseTcResponse
 {
 }

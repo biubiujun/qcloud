@@ -5,14 +5,14 @@ namespace BiuBiuJun\QCloud\Trtc\Requests;
 use BiuBiuJun\QCloud\Kernel\BaseRequest;
 
 /**
- * Class KickOutUserRequest
+ * Class RemoveUserRequest
  *
  * @package BiuBiuJun\QCloud\Trtc\Requests
  */
-class KickOutUserRequest extends BaseRequest
+class RemoveUserRequest extends BaseRequest
 {
     /**
-     * KickOutUserRequest constructor.
+     * RemoveUserRequest constructor.
      *
      * @param int   $sdkAppId
      * @param int   $roomId
@@ -30,7 +30,7 @@ class KickOutUserRequest extends BaseRequest
      */
     public function getAction(): string
     {
-        return 'KickOutUser';
+        return 'RemoveUser';
     }
 
     /**
