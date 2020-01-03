@@ -28,7 +28,7 @@ class DeleteGroupMemberRequest extends BaseRequest
      */
     public function getUri(): string
     {
-        return 'v4/group_open_http_svc/add_group_member';
+        return 'v4/group_open_http_svc/delete_group_member';
     }
 
     /**
