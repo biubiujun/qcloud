@@ -8,7 +8,7 @@ use BiuBiuJun\QCloud\Exceptions\InvalidArgumentException;
  * Class QCloud
  *
  * @package BiuBiuJun\QCloud
- * @method  \BiuBiuJun\QCloud\Tim\TimClient tim(string $sdkAppId, string $identifier, string $privateKey, string $publicKey, $sigVersion = 'V1')
+ * @method  \BiuBiuJun\QCloud\Tim\TimClient tim(string $sdkAppId, string $identifier)
  * @method  \BiuBiuJun\QCloud\Tiw\TiwClient tiw(string $secretId, string $secretKey, string $sdkAppId = '', string $privateKey = '', string $publicKey = '', $sigVersion = 'V1')
  * @method  \BiuBiuJun\QCloud\Trtc\TrtcClient trtc(string $secretId, string $secretKey)
  * @method  \BiuBiuJun\QCloud\Vod\VodClient vod(string $secretId, string $secretKey)
