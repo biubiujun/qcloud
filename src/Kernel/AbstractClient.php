@@ -8,6 +8,7 @@ use BiuBiuJun\QCloud\Kernel\HttpClient\SendRequest;
 use BiuBiuJun\QCloud\Kernel\Sign\TcSign;
 use BiuBiuJun\QCloud\Kernel\Sign\TicSign;
 use BiuBiuJun\QCloud\Kernel\Sign\TlsSignV1;
+use BiuBiuJun\QCloud\Kernel\Sign\TlsSignV2;
 
 /**
  * Class AbstractClient
@@ -37,6 +38,11 @@ abstract class AbstractClient
      * @var string
      */
     protected $publicKey;
+
+    /**
+     * @var string
+     */
+    protected $key;
 
     /**
      * @var string
@@ -83,19 +89,22 @@ abstract class AbstractClient
             if (empty($this->sdkAppId)) {
                 throw new InvalidArgumentException('sdkAppId is empty.');
             }
-            if (empty($this->privateKey)) {
-                throw new InvalidArgumentException('privateKey is empty.');
+            if ('V1' == $this->sigVersion) {
+                if (empty($this->privateKey)) {
+                    throw new InvalidArgumentException('privateKey is empty.');
+                }
+                if (empty($this->publicKey)) {
+                    throw new InvalidArgumentException('publicKey is empty.');
+                }
+                $this->tlsSign = new TlsSignV1($this->sdkAppId, $this->privateKey, $this->publicKey);
+            } elseif ('V2' == $this->sigVersion) {
+                if (empty($this->key)) {
+                    throw new InvalidArgumentException('key is empty.');
+                }
+                $this->tlsSign = new TlsSignV2($this->sdkAppId, $this->key);
+            } else {
+                throw new InvalidArgumentException("Sign Version {$this->sigVersion} not exist.");
             }
-            if (empty($this->publicKey)) {
-                throw new InvalidArgumentException('publicKey is empty.');
-            }
-
-            $signApplication = "BiuBiuJun\\QCloud\\Kernel\\Sign\\TlsSign{$this->sigVersion}";
-            if (!class_exists($signApplication)) {
-                throw new InvalidArgumentException("Response Class {$signApplication} not exist.");
-            }
-
-            $this->tlsSign = new $signApplication($this->sdkAppId, $this->privateKey, $this->publicKey);
         }
 
         return $this->tlsSign;

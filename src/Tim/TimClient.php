@@ -22,17 +22,24 @@ class TimClient extends AbstractClient
      *
      * @param string $sdkAppId
      * @param string $identifier
-     * @param string $privateKey
-     * @param string $publicKey
-     * @param string $sigVersion
      */
-    public function __construct(string $sdkAppId, string $identifier, string $privateKey, string $publicKey, $sigVersion = 'V1')
+    public function __construct(string $sdkAppId, string $identifier)
     {
         $this->sdkAppId = $sdkAppId;
         $this->identifier = $identifier;
+    }
+
+    public function setSignForEcdsa(string $privateKey, string $publicKey)
+    {
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
-        $this->sigVersion = $sigVersion;
+        $this->sigVersion = 'V1';
+    }
+
+    public function setSignForHmac(string $key)
+    {
+        $this->key = $key;
+        $this->sigVersion = 'V2';
     }
 
     /**
