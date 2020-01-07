@@ -80,6 +80,26 @@ abstract class AbstractClient
     protected $client = null;
 
     /**
+     * @param string $privateKey
+     * @param string $publicKey
+     */
+    public function setSignForEcdsa(string $privateKey, string $publicKey)
+    {
+        $this->privateKey = $privateKey;
+        $this->publicKey = $publicKey;
+        $this->sigVersion = 'V1';
+    }
+
+    /**
+     * @param string $key
+     */
+    public function setSignForHmac(string $key)
+    {
+        $this->key = $key;
+        $this->sigVersion = 'V2';
+    }
+
+    /**
      * @return \BiuBiuJun\QCloud\Kernel\Contracts\TlsSignInterface
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
      */

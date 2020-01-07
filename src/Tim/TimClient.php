@@ -29,19 +29,6 @@ class TimClient extends AbstractClient
         $this->identifier = $identifier;
     }
 
-    public function setSignForEcdsa(string $privateKey, string $publicKey)
-    {
-        $this->privateKey = $privateKey;
-        $this->publicKey = $publicKey;
-        $this->sigVersion = 'V1';
-    }
-
-    public function setSignForHmac(string $key)
-    {
-        $this->key = $key;
-        $this->sigVersion = 'V2';
-    }
-
     /**
      * @return \BiuBiuJun\QCloud\Kernel\HttpClient\TlsSigHttpClient
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
