@@ -174,8 +174,6 @@ abstract class AbstractClient
      *
      * @return string
      * @throws \BiuBiuJun\QCloud\Exceptions\InvalidArgumentException
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidConfigException
-     * @throws \BiuBiuJun\QCloud\Exceptions\InvalidSignException
      */
     public function genPrivateMapKey(string $userId, string $roomId, int $expire = 300)
     {
@@ -199,11 +197,6 @@ abstract class AbstractClient
         $userBuf .= pack('N', hexdec("0xff")); //dwPrivilegeMap unsigned int/4  权限位
         $userBuf .= pack('N', 0); //dwAccountType  unsigned int/4  第三方帐号类型
 
-        $tlsSign = $this->getTlsSign();
-        if (!$tlsSign instanceof TlsSignV1) {
-            $tlsSign = new TlsSignV1($this->sdkAppId, $this->privateKey, $this->publicKey);
-        }
-
-        return $tlsSign->sign($userId, $expire, $userBuf);
+        return $this->getTlsSign()->sign($userId, $expire, $userBuf);
     }
 }
