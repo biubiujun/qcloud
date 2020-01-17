@@ -4,6 +4,7 @@ namespace BiuBiuJun\Tests\Vod;
 
 use BiuBiuJun\QCloud\Vod\Requests\ConfirmEventsRequest;
 use BiuBiuJun\QCloud\Vod\Requests\DescribeTaskDetailRequest;
+use BiuBiuJun\QCloud\Vod\Requests\ModifyMediaInfoRequest;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\MediaProcessTaskInput;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\TaskInput\AdaptiveDynamicStreamingTaskInput;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\TaskInput\TranscodeTaskInput;
@@ -50,14 +51,14 @@ class UploadTest extends TestCase
 
     public function testProcessMedia()
     {
-        $request = new ProcessMediaRequest(5285890797839092257);
+        $request = new ProcessMediaRequest(5285890797843805620);
 
         $transcodeTaskSet = new TranscodeTaskInput(230);
         $mediaProcessTask = new MediaProcessTaskInput();
         $mediaProcessTask->setTranscodeTaskSet([$transcodeTaskSet]);
 
-        $adaptiveDynamicStreamingTaskSet = new AdaptiveDynamicStreamingTaskInput(10);
-        $mediaProcessTask->setAdaptiveDynamicStreamingTaskSet([$adaptiveDynamicStreamingTaskSet]);
+//        $adaptiveDynamicStreamingTaskSet = new AdaptiveDynamicStreamingTaskInput(10);
+//        $mediaProcessTask->setAdaptiveDynamicStreamingTaskSet([$adaptiveDynamicStreamingTaskSet]);
 
         $request->setMediaProcessTask($mediaProcessTask);
 
@@ -69,6 +70,15 @@ class UploadTest extends TestCase
     public function testDescribeTaskDetail()
     {
         $request = new DescribeTaskDetailRequest('1259354726-procedurev2-9fad0400487fa9d53fbf9e46b8930d3dt0');
+        $response = $this->getVodClient()->sendRequest($request);
+
+        print_r($response->getContent());
+    }
+
+    public function testModifyMediaInfo()
+    {
+        $request = new ModifyMediaInfoRequest('5285890797846743381');
+        $request->setDescription('abcefg');
         $response = $this->getVodClient()->sendRequest($request);
 
         print_r($response->getContent());
