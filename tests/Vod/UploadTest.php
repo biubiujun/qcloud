@@ -3,6 +3,9 @@
 namespace BiuBiuJun\Tests\Vod;
 
 use BiuBiuJun\QCloud\Vod\Requests\ConfirmEventsRequest;
+use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\MediaProcessTaskInput;
+use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\TaskInput\TranscodeTaskInput;
+use BiuBiuJun\QCloud\Vod\Requests\ProcessMediaRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullEventsRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullUploadRequest;
 use BiuBiuJun\Tests\TestCase;
@@ -41,5 +44,20 @@ class UploadTest extends TestCase
 //        var_dump($response->getContent());
 //        exit;
         $this->assertTrue($response->isSuccessful());
+    }
+
+    public function testProcessMedia()
+    {
+        $request = new ProcessMediaRequest(5285890797839092257);
+
+        $transcodeTaskSet = new TranscodeTaskInput(230);
+        $mediaProcessTask = new MediaProcessTaskInput();
+        $mediaProcessTask->setTranscodeTaskSet([$transcodeTaskSet]);
+
+        $request->setMediaProcessTask($mediaProcessTask);
+
+        $response = $this->getVodClient()->sendRequest($request);
+
+        print_r($response);
     }
 }
