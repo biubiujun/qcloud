@@ -3,7 +3,9 @@
 namespace BiuBiuJun\Tests\Vod;
 
 use BiuBiuJun\QCloud\Vod\Requests\ConfirmEventsRequest;
+use BiuBiuJun\QCloud\Vod\Requests\DescribeTaskDetailRequest;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\MediaProcessTaskInput;
+use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\TaskInput\AdaptiveDynamicStreamingTaskInput;
 use BiuBiuJun\QCloud\Vod\Requests\Parameters\Process\TaskInput\TranscodeTaskInput;
 use BiuBiuJun\QCloud\Vod\Requests\ProcessMediaRequest;
 use BiuBiuJun\QCloud\Vod\Requests\PullEventsRequest;
@@ -54,10 +56,21 @@ class UploadTest extends TestCase
         $mediaProcessTask = new MediaProcessTaskInput();
         $mediaProcessTask->setTranscodeTaskSet([$transcodeTaskSet]);
 
+        $adaptiveDynamicStreamingTaskSet = new AdaptiveDynamicStreamingTaskInput(10);
+        $mediaProcessTask->setAdaptiveDynamicStreamingTaskSet([$adaptiveDynamicStreamingTaskSet]);
+
         $request->setMediaProcessTask($mediaProcessTask);
 
         $response = $this->getVodClient()->sendRequest($request);
 
         print_r($response);
+    }
+
+    public function testDescribeTaskDetail()
+    {
+        $request = new DescribeTaskDetailRequest('1259354726-procedurev2-9fad0400487fa9d53fbf9e46b8930d3dt0');
+        $response = $this->getVodClient()->sendRequest($request);
+
+        print_r($response->getContent());
     }
 }

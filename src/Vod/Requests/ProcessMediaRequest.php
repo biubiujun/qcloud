@@ -50,7 +50,7 @@ class ProcessMediaRequest extends BaseVodRequest
      */
     public function setMediaProcessTask(MediaProcessTaskInput $mediaProcessTask)
     {
-        $this->setParameter('MediaProcessTask', $mediaProcessTask);
+        $this->setParameter('MediaProcessTask', $mediaProcessTask->getParameters());
 
         return $this;
     }
